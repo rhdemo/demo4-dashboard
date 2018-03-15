@@ -5,9 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <link rel="stylesheet" href="node_modules/normalize.css/normalize.css">
-  <link rel="stylesheet" href="css/base.css">
+  <title>Summit Keynote Particle Demo</title>
+  <!-- <link rel="stylesheet" href="../node_modules/normalize.css/normalize.css"> -->
+  <!-- <link rel="stylesheet" href="css/base.css"> -->
+  <script src="css.js"></script>
 </head>
 
 <body>
@@ -33,7 +34,7 @@
 
         <!-- Delete this section once we have the webgl -->
         <div class="webgl">
-          Pipes svg
+            <img src="images/node-positions.svg" style="width: 90%">
         </div>
 
       </div>
@@ -65,7 +66,7 @@
               1
               <sup>st</sup>
             </div>
-            <img src="../images/andres.jpg" alt="Avatar of username" class="leaderboard__avatar">
+            <img src="images/andres.jpg" alt="Avatar of username" class="leaderboard__avatar">
             <span class="leaderboard__username">User Name</span>
             <span class="leaderboard__score">625 <small>points</small></span>
           </li>
@@ -75,7 +76,7 @@
               2
               <sup>nd</sup>
             </div>
-            <img src="../images/andres.jpg" alt="Avatar of username" class="leaderboard__avatar">
+            <img src="images/andres.jpg" alt="Avatar of username" class="leaderboard__avatar">
             <span class="leaderboard__username">User Name</span>
             <span class="leaderboard__score">625 <small>points</small></span>
           </li>
@@ -86,7 +87,7 @@
               3
               <sup>rd</sup>
             </div>
-            <img src="../images/andres.jpg" alt="Avatar of username" class="leaderboard__avatar">
+            <img src="images/andres.jpg" alt="Avatar of username" class="leaderboard__avatar">
             <span class="leaderboard__username">User Name</span>
             <span class="leaderboard__score">625 <small>points</small></span>
           </li>
@@ -97,7 +98,7 @@
               4
               <sup>th</sup>
             </div>
-            <img src="../images/andres.jpg" alt="Avatar of username" class="leaderboard__avatar">
+            <img src="images/andres.jpg" alt="Avatar of username" class="leaderboard__avatar">
             <span class="leaderboard__username">User Name</span>
             <span class="leaderboard__score">625 <small>points</small></span>
           </li>
@@ -108,7 +109,7 @@
               5
               <sup>th</sup>
             </div>
-            <img src="../images/andres.jpg" alt="Avatar of username" class="leaderboard__avatar">
+            <img src="images/andres.jpg" alt="Avatar of username" class="leaderboard__avatar">
             <span class="leaderboard__username">User Name</span>
             <span class="leaderboard__score">625 <small>points</small></span>
           </li>
@@ -119,7 +120,7 @@
               6
               <sup>th</sup>
             </div>
-            <img src="../images/andres.jpg" alt="Avatar of username" class="leaderboard__avatar">
+            <img src="images/andres.jpg" alt="Avatar of username" class="leaderboard__avatar">
             <span class="leaderboard__username">User Name</span>
             <span class="leaderboard__score">625 <small>points</small></span>
           </li>
@@ -129,7 +130,7 @@
               7
               <sup>th</sup>
             </div>
-            <img src="../images/andres.jpg" alt="Avatar of username" class="leaderboard__avatar">
+            <img src="images/andres.jpg" alt="Avatar of username" class="leaderboard__avatar">
             <span class="leaderboard__username">User Name</span>
             <span class="leaderboard__score">625 <small>points</small></span>
           </li>
@@ -140,7 +141,7 @@
               8
               <sup>th</sup>
             </div>
-            <img src="../images/andres.jpg" alt="Avatar of username" class="leaderboard__avatar">
+            <img src="images/andres.jpg" alt="Avatar of username" class="leaderboard__avatar">
             <span class="leaderboard__username">User Name</span>
             <span class="leaderboard__score">625 <small>points</small></span>
           </li>
@@ -151,7 +152,7 @@
               9
               <sup>th</sup>
             </div>
-            <img src="../images/andres.jpg" alt="Avatar of username" class="leaderboard__avatar">
+            <img src="images/andres.jpg" alt="Avatar of username" class="leaderboard__avatar">
             <span class="leaderboard__username">User Name</span>
             <span class="leaderboard__score">625 <small>points</small></span>
           </li>
@@ -162,7 +163,7 @@
               10
               <sup>th</sup>
             </div>
-            <img src="../images/andres.jpg" alt="Avatar of username" class="leaderboard__avatar">
+            <img src="images/andres.jpg" alt="Avatar of username" class="leaderboard__avatar">
             <span class="leaderboard__username">User Name</span>
             <span class="leaderboard__score">625 <small>points</small></span>
           </li>
@@ -171,6 +172,15 @@
       </div>
     </section>
   </div>
+
+  <section id="path-tool">
+      <span>Path Tool</span>
+      <button id="start-path">Start</button>
+      <button id="end-path">End</button>
+      <textarea id="export-area"></textarea>
+  </section>
+
+  <script src="index.js"></script>
 
 </body>
 

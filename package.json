@@ -4,17 +4,27 @@
   "description": "dashboard for demo",
   "main": "Gulpfile.js",
   "scripts": {
+    "serve": "./node_modules/.bin/browser-sync start --server --serveStatic dist/ --files 'dist/**/*' --directory",
+    "parcel": "./node_modules/.bin/parcel watch --no-hmr src/index.html",
+    "start": "npm run parcel & npm run serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-preset-env": "^1.6.1",
     "browser-sync": "^2.10.1",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
-    "gulp-sass": "^2.1.1"
+    "gulp-sass": "^2.1.1",
+    "node-sass": "^4.7.2",
+    "parcel-bundler": "^1.6.2",
+    "prettier": "^1.11.1"
   },
   "dependencies": {
+    "dropzone": "^5.4.0",
+    "lodash": "^4.17.5",
+    "three": "^0.91.0",
     "update": "^0.7.4"
   }
 }
