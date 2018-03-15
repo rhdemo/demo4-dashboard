@@ -1,5 +1,7 @@
 /*! minireset.css v0.0.3 | MIT License | github.com/jgthms/minireset.css */html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,iframe,hr,h1,h2,h3,h4,h5,h6{margin:0;padding:0}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}ul{list-style:none}button,input,select,textarea{margin:0}html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}img,embed,iframe,object,audio,video{height:auto;max-width:100%}iframe{border:0}table{border-collapse:collapse;border-spacing:0}td,th{padding:0;text-align:left}
 
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600');
+
 ol, ul {
   list-style: none;
 }
@@ -7,16 +9,166 @@ html, body {
   height: 100%;
 }
 
+* {
+  outline: 1 px solid red;
+}
+
 body {
-  background-image: url("../img/leaderboard.jpg");
+  background-image: url("../images/leaderboard.jpg");
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: 100% 100%;
   color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
 }
 
 .dashboard {
-  // background: red;
   display: grid;
   grid-template-columns: 3fr 1fr;
+  height: 100%;
+  margin-right: 2rem;
+  margin-left: 2rem;
+}
+
+.dashboard__section {
+  &:first-of-type {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    // creates the gap for the divider
+    margin-right: 4rem;
+  }
+} 
+
+// styles each section
+
+h1 {
+  font-weight: 600;
+  font-size: 2.2rem;
+  margin-top: 3rem;
+  background: rgba(0,0,0,.5);
+  border-radius: 400px;
+  padding: 1rem 2rem;
+  text-align: center;
+  small {
+    font-size: 60%;
+    font-weight: 400;
+    display: block;
+    margin-top: .3rem;
+  }
+  .pipes & {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  .pictures & {
+    margin-left: -2rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .top & {
+    margin-right: -2rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+
+
+// delete this:
+.webgl {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 80%;
+}
+
+
+// leaderboard
+
+.leaderboard {
+  margin-right: -2rem;
+
+  &__header {
+    background: rgba(0,0,0,.5);
+    padding: 1rem 2rem;
+    margin-top: 4rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  
+  &__item {
+    border-bottom: 1px solid black;
+    padding: .7rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1.2rem;
+    will-change: box-shadow;
+    &.has-change {
+      animation: 1s flash ease;
+    }
+  }
+
+  &__avatar {
+    display: block;
+    border-radius: 50%;
+    margin-right: .5rem;
+    border: 1px solid rgba(0, 0, 0, .2);
+    background-color: white;
+    padding: 2px;
+    width: 2.5rem;
+    height: 2.5rem;
+    .has-change & {
+      transition: transform .5s ease;
+      transform: rotateX(360deg);
+    }
+  }
+  
+  &__position {
+    font-weight: 600;
+    font-size: 1.8rem;
+    flex: 0 0 4.5rem;
+    // background: red;
+  }  
+  
+  &__username {
+    flex: 1;
+    .has-change & {
+      transition: transform .5s ease;
+      transform: rotateX(360deg);
+    }
+    // margin and workdbreak to accomodate to really long names
+    margin-right: .5rem;
+    word-break: break-all;
+  }
+
+  &__score {
+    .has-change & {
+      transition: transform .5s ease;
+      transform: rotateX(360deg);
+    }
+  }
+}
+
+
+sup {
+  font-size: 50%;
+}
+
+@keyframes flash {
+  0% {
+    box-shadow:
+        inset 0 0 50px #fff,      /* inner white */
+        inset 20px 0 80px #f0f,   /* inner left magenta short */
+        inset -20px 0 80px #0ff,  /* inner right cyan short */
+        inset 20px 0 300px #f0f,  /* inner left magenta broad */
+        inset -20px 0 300px #0ff, /* inner right cyan broad */
+        0 0 50px #fff,            /* outer white */
+        -10px 0 80px #f0f,        /* outer left magenta */
+        10px 0 80px #0ff;         /* outer right cyan */
+  }
+  100% {
+    box-shadow: none;
+  }
 }
