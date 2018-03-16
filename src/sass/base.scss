@@ -54,7 +54,7 @@ body {
 h1 {
   font-weight: 600;
   font-size: 2.2rem;
-  margin-top: 3rem;
+  margin-top: 2rem;
   background: rgba(0,0,0,.5);
   border-radius: 400px;
   padding: 1rem 2rem;
@@ -64,6 +64,7 @@ h1 {
     font-weight: 400;
     display: block;
     margin-top: .3rem;
+    filter: opacity(.7);
   }
   .pipes & {
     margin-left: 1rem;
@@ -81,12 +82,15 @@ h1 {
   }
 }
 
+* {
+  // outline: 1px solid red;
+}
 // pipes section
-.pipes {
+.pipes, .pictures, .points {
   display: flex;
   flex-direction: column;
 }
-.network {
+.network, .webgl {
   flex: 1;
   display: flex;
   justify-content: center;
@@ -95,16 +99,6 @@ h1 {
     width: 100%;
   }
 }
-
-
-// delete this:
-.webgl {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 80%;
-}
-
 
 // leaderboard
 
@@ -173,7 +167,6 @@ h1 {
     font-weight: 600;
     font-size: 1.8rem;
     flex: 0 0 4.5rem;
-    // background: red;
   }  
   
   &__username {
@@ -188,6 +181,10 @@ h1 {
   }
 
   &__score {
+    small {
+      filter: opacity(.7);
+      font-size: 70%;
+    }
     .has-change & {
       transition: transform .5s ease;
       transform: rotateX(360deg);
