@@ -4,6 +4,12 @@ var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 
+gulp.task('build', function() {
+    gulp.src('./build/index.html', { hmr: false, cache: false, watch: true})
+        .pipe(parcel({outDir: 'dist', publicUrl'./' }, {source: 'build'}))
+        .pipe(gulp.dest('dist'));
+});
+
 gulp.task('styles', function() {
       gulp.src('sass/**/*.scss')
         .pipe(sass().on('error', sass.logError))
