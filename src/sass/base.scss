@@ -9,18 +9,27 @@ html, body {
   height: 100%;
 }
 
-// * {
-//   outline: 1 px solid red;
-// }
-
 body {
-  background-image: url("../images/leaderboard.jpg");
+  background-image: url("../images/leaderboard.svg");
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: 100% 100%;
   color: #fff;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    background-image: url("../images/pillar.svg");
+    background-position: 78% bottom;
+    background-repeat: no-repeat;
+  }
 }
 
 .dashboard {
@@ -72,6 +81,20 @@ h1 {
   }
 }
 
+// pipes section
+.pipes {
+  display: flex;
+  flex-direction: column;
+}
+.network {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 100%;
+  }
+}
 
 
 // delete this:

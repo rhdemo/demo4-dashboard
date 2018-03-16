@@ -9,36 +9,39 @@ export default class MovingParticleFactory {
 
     const probability = [0.9, 0.05, 0.05];
     const paths = {
-      nodes: 4,
-      components: 2,
-      count: 3,
-      coordinates: [
-        326,
-        586,
-        546,
-        474,
-        767,
-        364,
-        987,
-        254,
-        326,
-        586,
-        546,
-        696,
-        767,
-        585,
-        987,
-        695,
-        326,
-        586,
-        546,
-        696,
-        767,
-        805,
-        988,
-        916
+      "nodes": 4,
+      "components": 2,
+      "count": 3,
+      "coordinates": [
+        322,
+        617,
+        573,
+        743,
+        823,
+        864,
+        1067,
+        989,
+        322,
+        617,
+        573,
+        743,
+        825,
+        613,
+        1067,
+        742,
+        322,
+        617,
+        575,
+        494,
+        819,
+        372,
+        1069,
+        251
       ]
     };
     return new MovingParticles(stage, paths, probability);
   }
 }
+
+
+
