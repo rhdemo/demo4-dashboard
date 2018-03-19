@@ -21,6 +21,7 @@ attribute float variation;
 
 uniform float size;
 uniform float paths[PATH_NODES * PATH_COMPONENTS * PATH_COUNT];
+uniform float loopParticles;
 
 varying vec3 vColor;
 
@@ -54,7 +55,14 @@ vec2 pointOnPath(float p, int pn) {
 void main() {
     vColor = color;
 
-    vec2 pathPos = pointOnPath(progress, int(path));
+    // if loopParticles is enabled, then mod the progress, causing the
+    // particles to restart their paths upon completion
+    float p = progress;
+    if (loopParticles == 1.0) {
+        p = mod(p, 1.0);
+    }
+
+    vec2 pathPos = pointOnPath(p, int(path));
 
     /* pathPos.x += cos(progress * 100.0 - moveDelay * moveDelay) * 10.0; */
     /* pathPos.y += sin(progress * 100.0 - moveDelay * moveDelay) * 10.0; */

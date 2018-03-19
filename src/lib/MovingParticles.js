@@ -17,6 +17,7 @@ export default class MovingParticles extends Actor {
     this.speed = 0.005;
     this.delaySpread = 3;
     this.size = 32;
+    this.loopParticles = false;
 
     log("created");
 
@@ -137,7 +138,8 @@ export default class MovingParticles extends Actor {
     return new THREE.ShaderMaterial({
       uniforms: {
         size: { type: "t", value: this.size },
-        paths: this._getPathsUniform()
+        paths: this._getPathsUniform(),
+        loopParticles: { type: "f", value: +this.loopParticles }
       },
       vertexShader: vert,
       fragmentShader: shaders.frag
