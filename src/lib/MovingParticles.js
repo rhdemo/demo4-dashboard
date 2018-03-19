@@ -14,10 +14,10 @@ export default class MovingParticles extends Actor {
     this.paths = paths;
 
     this.pointCount = 1000;
-    this.speed = 0.005;
+    this.speed = 0.001;
     this.delaySpread = 3;
     this.size = 32;
-    this.loopParticles = false;
+    this.loopParticles = !false;
 
     log("created");
 
