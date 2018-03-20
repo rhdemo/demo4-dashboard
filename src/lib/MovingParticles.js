@@ -16,7 +16,7 @@ export default class MovingParticles extends Actor {
     this.pointCount = 1000;
     this.speed = 0.001;
     this.delaySpread = 3;
-    this.size = 32;
+    this.size = 128;
     this.loopParticles = !false;
 
     log("created");
@@ -139,7 +139,12 @@ export default class MovingParticles extends Actor {
       uniforms: {
         size: { type: "t", value: this.size },
         paths: this._getPathsUniform(),
-        loopParticles: { type: "f", value: +this.loopParticles }
+        loopParticles: { type: "f", value: +this.loopParticles },
+        texture: {
+          value: new THREE.TextureLoader().load(
+            document.querySelector("#particle-sprite").src
+          )
+        }
       },
       vertexShader: vert,
       fragmentShader: shaders.frag
@@ -287,9 +292,15 @@ export default class MovingParticles extends Actor {
 
     for (let i = 0; i < this.pointCount; ++i) {
       const i3 = i * 3;
-      array[i3 + 0] = 246 / 255;
-      array[i3 + 1] = 203 / 255;
-      array[i3 + 2] = 105 / 255;
+      /* white */
+      array[i3 + 0] = 255 / 255;
+      array[i3 + 1] = 255 / 255;
+      array[i3 + 2] = 255 / 255;
+
+      /* yellow */
+      // array[i3 + 0] = 246 / 255;
+      // array[i3 + 1] = 203 / 255;
+      // array[i3 + 2] = 105 / 255;
     }
 
     return new THREE.Float32BufferAttribute(array, 3);
