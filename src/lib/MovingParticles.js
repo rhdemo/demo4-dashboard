@@ -13,11 +13,12 @@ export default class MovingParticles extends Actor {
 
     this.paths = paths;
 
-    this.pointCount = 1000;
-    this.speed = 0.001;
-    this.delaySpread = 3;
-    this.size = 128;
-    this.loopParticles = !false;
+    this.pointCount = 200;
+    this.speed = 0.005;
+    this.delaySpread = 1;
+    this.size = 200;
+    this.spread = 12;
+    this.loopParticles = false;
 
     log("created");
 
@@ -133,6 +134,7 @@ export default class MovingParticles extends Actor {
     const vert = shaders.vert
       .replace("${PATH_NODES}", this.paths.nodes)
       .replace("${PATH_COMPONENTS}", this.paths.components)
+      .replace("${PATH_SPREAD}", this.spread.toPrecision(8))
       .replace("${PATH_COUNT}", this.paths.count);
 
     return new THREE.ShaderMaterial({

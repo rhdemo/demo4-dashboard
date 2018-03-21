@@ -11,7 +11,9 @@
 #define PATH_LENGTH (PATH_NODES*PATH_COMPONENTS)
 
 // how much to spread out the particles
-#define SPREAD 4.0
+#define SPREAD ${PATH_SPREAD}
+
+#define DISCARD_THIS -1234567890.0
 
 attribute vec3 color;
 attribute float progress;
