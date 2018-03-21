@@ -1,8 +1,13 @@
 uniform sampler2D texture;
 
 varying vec3 vColor;
+varying float vDiscard;
 
 void main() {
+
+    if (vDiscard == 1.0) {
+        discard;
+    }
     /* gl_FragColor = vec4( color, 1.0 ); */
     vec4 color = vec4(vColor, 1.0);
 

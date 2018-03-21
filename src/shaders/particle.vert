@@ -26,10 +26,11 @@ uniform float paths[PATH_NODES * PATH_COMPONENTS * PATH_COUNT];
 uniform float loopParticles;
 
 varying vec3 vColor;
+varying float vDiscard;
 
 // p = progress [0..1)
 // pn = path number, indicating whether this particle should use path 0, path 1, etc
-vec2 pointOnPath(float p, int pn) {
+vec2 pointOnPath(float p, int pn, bool hideStationary) {
     p = clamp(p, 0.0, 1.0);
 
     int path_i = PATH_LENGTH * pn;
@@ -49,6 +50,14 @@ vec2 pointOnPath(float p, int pn) {
     vec2 p1 = vec2(paths[x1i] + xvar, paths[y1i] + yvar);
     vec2 p2 = vec2(paths[x2i] + xvar, paths[y2i] + yvar);
 
+    // if the particle isn't moving, this means that it has reached the end of
+    // its path, but it was on a path that has padding end points.  we don't
+    // want those particles to stay visible just sitting there, so let our
+    // friend the fragment shader know to discard this particle with 
+    if (hideStationary && p1 == p2) {
+        return vec2(DISCARD_THIS, 0.0);
+    }
+
     vec2 pos = mix( p1, p2, a );
 
     return pos;
@@ -60,11 +69,19 @@ void main() {
     // if loopParticles is enabled, then mod the progress, causing the
     // particles to restart their paths upon completion
     float p = progress;
-    if (loopParticles == 1.0) {
+
+    bool shouldLoop = loopParticles == 1.0;
+
+    if (shouldLoop) {
         p = mod(p, 1.0);
     }
 
-    vec2 pathPos = pointOnPath(p, int(path));
+    vec2 pathPos = pointOnPath(p, int(path), shouldLoop);
+
+    if (pathPos.x == DISCARD_THIS) {
+        vDiscard = 1.0;
+        return;
+    }
 
     /* pathPos.x += cos(progress * 100.0 - moveDelay * moveDelay) * 10.0; */
     /* pathPos.y += sin(progress * 100.0 - moveDelay * moveDelay) * 10.0; */
