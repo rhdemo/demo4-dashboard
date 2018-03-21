@@ -146,6 +146,7 @@ export default class MovingParticles extends Actor {
           )
         }
       },
+      transparent: true,
       vertexShader: vert,
       fragmentShader: shaders.frag
     });
@@ -293,14 +294,14 @@ export default class MovingParticles extends Actor {
     for (let i = 0; i < this.pointCount; ++i) {
       const i3 = i * 3;
       /* white */
-      array[i3 + 0] = 255 / 255;
-      array[i3 + 1] = 255 / 255;
-      array[i3 + 2] = 255 / 255;
+      // array[i3 + 0] = 255 / 255;
+      // array[i3 + 1] = 255 / 255;
+      // array[i3 + 2] = 255 / 255;
 
       /* yellow */
-      // array[i3 + 0] = 246 / 255;
-      // array[i3 + 1] = 203 / 255;
-      // array[i3 + 2] = 105 / 255;
+      array[i3 + 0] = 246 / 255;
+      array[i3 + 1] = 203 / 255;
+      array[i3 + 2] = 105 / 255;
     }
 
     return new THREE.Float32BufferAttribute(array, 3);
