@@ -4,6 +4,7 @@
   "description": "dashboard for demo",
   "main": "Gulpfile.js",
   "scripts": {
+    "server": "node src/lib/server/Server.js",
     "serve": "./node_modules/.bin/browser-sync start --server --serveStatic dist/ --files 'dist/**/*' --directory",
     "parcel": "./node_modules/.bin/parcel watch --no-hmr src/index.html",
     "start": "npm run parcel & npm run serve",
@@ -23,8 +24,11 @@
   },
   "dependencies": {
     "dropzone": "^5.4.0",
+    "hapi": "^17.2.3",
     "lodash": "^4.17.5",
+    "node-fetch": "^2.1.1",
     "three": "^0.91.0",
-    "update": "^0.7.4"
+    "update": "^0.7.4",
+    "vue": "^2.5.16"
   }
 }

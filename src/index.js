@@ -1,5 +1,6 @@
 import Stage from "./lib/particles/Stage.js";
 import PathTracer from "./lib/particles/PathTracer.js";
+import Leaderboard from './lib/leaderboard/Leaderboard.js';
 import { makeLogger } from "./lib/logging/Logger.js";
 
 const log = makeLogger("index");

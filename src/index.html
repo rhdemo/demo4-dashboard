@@ -49,116 +49,20 @@
         <small>active users</small>
       </h1>
 
-      <div class="leaderboard">
+      <div id="leaderboard" class="leaderboard">
         <h2 class="leaderboard__header">Top 10</h2>
         <ol>
-          <li class="leaderboard__item">
+          <li
+            v-for="(leader, index) in leaders"
+            class="leaderboard__item has-change">
             <div class="leaderboard__position">
-              1
-              <sup>st</sup>
-            </div>
-            <img src="images/andres.jpg" alt="Avatar of username" class="leaderboard__avatar">
-            <span class="leaderboard__username">User Name</span>
-            <span class="leaderboard__score">625 <small>points</small></span>
-          </li>
-
-          <li class="leaderboard__item has-change">
-            <div class="leaderboard__position">
-              2
+              {{ index + 1 }}
               <sup>nd</sup>
             </div>
             <img src="images/andres.jpg" alt="Avatar of username" class="leaderboard__avatar">
-            <span class="leaderboard__username">User Name</span>
-            <span class="leaderboard__score">625 <small>points</small></span>
+            <span class="leaderboard__username">{{ leader.name }}</span>
+            <span class="leaderboard__score">{{ leader.score }} <small>points</small></span>
           </li>
-
-
-          <li class="leaderboard__item">
-            <div class="leaderboard__position">
-              3
-              <sup>rd</sup>
-            </div>
-            <img src="images/andres.jpg" alt="Avatar of username" class="leaderboard__avatar">
-            <span class="leaderboard__username">User Name</span>
-            <span class="leaderboard__score">625 <small>points</small></span>
-          </li>
-
-
-          <li class="leaderboard__item">
-            <div class="leaderboard__position">
-              4
-              <sup>th</sup>
-            </div>
-            <img src="images/andres.jpg" alt="Avatar of username" class="leaderboard__avatar">
-            <span class="leaderboard__username">User Name</span>
-            <span class="leaderboard__score">625 <small>points</small></span>
-          </li>
-
-
-          <li class="leaderboard__item">
-            <div class="leaderboard__position">
-              5
-              <sup>th</sup>
-            </div>
-            <img src="images/andres.jpg" alt="Avatar of username" class="leaderboard__avatar">
-            <span class="leaderboard__username">User Name</span>
-            <span class="leaderboard__score">625 <small>points</small></span>
-          </li>
-
-
-          <li class="leaderboard__item">
-            <div class="leaderboard__position">
-              6
-              <sup>th</sup>
-            </div>
-            <img src="images/andres.jpg" alt="Avatar of username" class="leaderboard__avatar">
-            <span class="leaderboard__username">User Name</span>
-            <span class="leaderboard__score">625 <small>points</small></span>
-          </li>
-
-          <li class="leaderboard__item">
-            <div class="leaderboard__position">
-              7
-              <sup>th</sup>
-            </div>
-            <img src="images/andres.jpg" alt="Avatar of username" class="leaderboard__avatar">
-            <span class="leaderboard__username">User Name</span>
-            <span class="leaderboard__score">625 <small>points</small></span>
-          </li>
-
-
-          <li class="leaderboard__item">
-            <div class="leaderboard__position">
-              8
-              <sup>th</sup>
-            </div>
-            <img src="images/andres.jpg" alt="Avatar of username" class="leaderboard__avatar">
-            <span class="leaderboard__username">User Name</span>
-            <span class="leaderboard__score">625 <small>points</small></span>
-          </li>
-
-
-          <li class="leaderboard__item">
-            <div class="leaderboard__position">
-              9
-              <sup>th</sup>
-            </div>
-            <img src="images/andres.jpg" alt="Avatar of username" class="leaderboard__avatar">
-            <span class="leaderboard__username">User Name</span>
-            <span class="leaderboard__score">625 <small>points</small></span>
-          </li>
-
-
-          <li class="leaderboard__item">
-            <div class="leaderboard__position">
-              10
-              <sup>th</sup>
-            </div>
-            <img src="images/andres.jpg" alt="Avatar of username" class="leaderboard__avatar">
-            <span class="leaderboard__username">User Name</span>
-            <span class="leaderboard__score">625 <small>points</small></span>
-          </li>
-
         </ol>
       </div>
     </section>
