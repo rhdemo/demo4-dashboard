@@ -1,5 +1,5 @@
-import Stage from "./lib/Stage.js";
-import PathTracer from "./lib/PathTracer.js";
+import Stage from "./lib/particles/Stage.js";
+import PathTracer from "./lib/particles/PathTracer.js";
 import { makeLogger } from "./lib/logging/Logger.js";
 
 const log = makeLogger("index");

@@ -1,7 +1,7 @@
 import ImageSource from "./ImageSource.js";
 import Pixelator from "./Pixelator.js";
 import Drop from "./Drop.js";
-import { makeLogger } from "./logging/Logger";
+import { makeLogger } from "../logging/Logger";
 
 const log = makeLogger("DropImageSource");
 

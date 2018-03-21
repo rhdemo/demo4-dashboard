@@ -1,4 +1,4 @@
-import { makeLogger } from "./logging/Logger";
+import { makeLogger } from "../logging/Logger";
 
 const log = makeLogger("ImageSource");
 

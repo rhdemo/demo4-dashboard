@@ -1,5 +1,5 @@
 import MovingParticles from "./MovingParticles.js";
-import { makeLogger } from "./logging/Logger";
+import { makeLogger } from "../logging/Logger";
 
 const log = makeLogger("MovingParticleFactory");
 

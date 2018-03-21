@@ -3,7 +3,7 @@ import * as THREE from "three";
 import DropImageSource from "./DropImageSource.js";
 import ParticleImageFactory from "./ParticleImageFactory.js";
 import MovingParticleFactory from "./MovingParticleFactory.js";
-import { makeLogger } from "./logging/Logger.js";
+import { makeLogger } from "../logging/Logger.js";
 
 const log = makeLogger("Stage");
 

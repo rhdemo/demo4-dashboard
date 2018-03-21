@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import Actor from "./Actor.js";
-import { makeLogger } from "./logging/Logger.js";
+import { makeLogger } from "../logging/Logger.js";
 import ShaderLoader from "./ShaderLoader.js";
 
 const log = makeLogger("MovingParticles");

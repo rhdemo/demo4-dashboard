@@ -1,5 +1,5 @@
 import ParticleImage from "./ParticleImage.js";
-import { makeLogger } from "./logging/Logger";
+import { makeLogger } from "../logging/Logger";
 
 const log = makeLogger("ParticleImageFactory");
 

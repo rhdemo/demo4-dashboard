@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import Actor from "./Actor.js";
-import { makeLogger } from "./logging/Logger.js";
+import { makeLogger } from "../logging/Logger.js";
 import Paths from "./Paths.js";
 
 const log = makeLogger("ParticleImage");
