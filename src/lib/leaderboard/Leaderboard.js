@@ -1,4 +1,5 @@
 import Vue from "../../../node_modules/vue/dist/vue.esm.js";
+import { take } from "lodash";
 import { makeLogger } from "../logging/Logger.js";
 
 const log = makeLogger("Leaderboard");
@@ -72,9 +73,9 @@ function update() {
   fetch("http://localhost:1234/leaders")
     .then(rsp => rsp.json())
     .then(leaders => {
-      app.top10 = leaders.top10;
+      app.top10 = take(leaders.top10, 10);
       app.currentPlayers = leaders.currentPlayers;
     });
 }
 
-setInterval(update, 800);
+setInterval(update, 1000);
