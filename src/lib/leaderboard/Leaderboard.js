@@ -64,6 +64,7 @@ const app = new Vue({
         achievements: {}
       }
     ]
+    ord: ["st", "nd", "rd", "th", "th", "th", "th", "th", "th", "th"]
   }
 });
 

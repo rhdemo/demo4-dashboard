@@ -57,7 +57,7 @@
             class="leaderboard__item has-change">
             <div class="leaderboard__position">
               {{ index + 1 }}
-              <sup>nd</sup>
+              <sup>{{ ord[index] }}</sup>
             </div>
             <img src="images/andres.jpg" alt="Avatar of username" class="leaderboard__avatar">
             <span class="leaderboard__username">{{ leader.name }}</span>
