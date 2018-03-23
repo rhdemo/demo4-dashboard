@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <div class="dashboard">
+  <div id="dashboard" class="dashboard">
     <section class="dashboard__section">
 
       <div class="pictures">
@@ -45,15 +45,15 @@
 
 
     <section class="dashboard__section top">
-      <h1>7,762
+      <h1>{{ currentPlayers }}
         <small>active users</small>
       </h1>
 
-      <div id="leaderboard" class="leaderboard">
+      <div class="leaderboard">
         <h2 class="leaderboard__header">Top 10</h2>
         <ol>
           <li
-            v-for="(leader, index) in leaders"
+            v-for="(leader, index) in top10"
             class="leaderboard__item has-change">
             <div class="leaderboard__position">
               {{ index + 1 }}

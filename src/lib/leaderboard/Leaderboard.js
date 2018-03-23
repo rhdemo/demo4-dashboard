@@ -6,10 +6,13 @@ const log = makeLogger("Leaderboard");
 log("leaderboard initializing");
 
 const app = new Vue({
-  el: "#leaderboard",
+  el: "#dashboard",
   data: {
-    // default starting data
-    leaders: [
+    // default starting data so the leaderboard isn't blank if there's no
+    // connection to the service, it' just a snapshot of random data from
+    // microservice B
+    currentPlayers: 0,
+    top10: [
       {
         name: "692fa26d-57b4-44c9-a4cd-7ca2d4a67663",
         score: 884,
@@ -68,7 +71,8 @@ function update() {
   fetch("http://localhost:1234/leaders")
     .then(rsp => rsp.json())
     .then(leaders => {
-      app.leaders = leaders;
+      app.top10 = leaders.top10;
+      app.currentPlayers = leaders.currentPlayers;
     });
 }
 

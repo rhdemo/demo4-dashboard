@@ -8,7 +8,7 @@ function update() {
   )
     .then(rsp => rsp.json())
     .then(json => {
-      leaders = json.top10;
+      leaders = json;
     });
 }
 
