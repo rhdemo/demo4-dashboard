@@ -64,7 +64,7 @@ const app = new Vue({
         score: 92,
         achievements: {}
       }
-    ]
+    ],
     ord: ["st", "nd", "rd", "th", "th", "th", "th", "th", "th", "th"]
   }
 });
