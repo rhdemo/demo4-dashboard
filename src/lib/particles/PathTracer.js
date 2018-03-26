@@ -1,4 +1,4 @@
-import { chain, map, uniq, flatten, each } from "lodash";
+import { max, chain, map, uniq, flatten, each } from "lodash";
 import * as lodash from "lodash";
 
 window._ = lodash;
@@ -57,6 +57,9 @@ Point.nextId = 0;
 ////////////////////////////////////////////////////////////////////////
 
 class Path {
+  get length() {
+    return this.points.length;
+  }
   constructor() {
     this.points = [];
   }
@@ -64,6 +67,12 @@ class Path {
     const point = new Point(x, y);
     point.addToDOM();
     this.points.push(point);
+  }
+  pad(length) {
+    while (length > this.points.length) {
+      this.points.push(this.points[this.points.length - 2]);
+      this.points.push(this.points[this.points.length - 2]);
+    }
   }
   end() {
     // dim all points
@@ -105,6 +114,7 @@ export default class PathTracer {
       this.currentPath.end();
       this._stopMouse();
       this._savePath();
+      this._padPaths();
       this._exportPath();
     }
 
@@ -193,6 +203,11 @@ export default class PathTracer {
   _savePath() {
     // add the current path to the list of finalized paths
     this.finalizedPaths.push(this.currentPath);
+  }
+
+  _padPaths() {
+    const maxLength = max(map(this.finalizedPaths, "points.length"));
+    this.finalizedPaths.forEach(path => path.pad(maxLength));
   }
 
   _addPoint(x, y) {
