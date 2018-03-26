@@ -16,6 +16,6 @@ function get() {
   return leaders;
 }
 
-setInterval(update, 800);
+setInterval(update, 1000);
 
 module.exports = { get };
