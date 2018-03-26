@@ -1,3 +1,4 @@
+import * as THREE from "three";
 import MovingParticles from "./MovingParticles.js";
 import { makeLogger } from "../logging/Logger";
 
@@ -175,6 +176,13 @@ export default class MovingParticleFactory {
         1004
       ]
     };
-    return new MovingParticles(stage, paths, probability);
+
+    const probability = new Array(paths.count);
+    probability[Math.floor(probability.length * Math.random())] = 1;
+
+    // const color = new THREE.Color(Math.random(), Math.random(), Math.random());
+    const color = new THREE.Color(1, 1, 0);
+
+    return new MovingParticles({ stage, paths, probability, color });
   }
 }

@@ -6,12 +6,13 @@ import ShaderLoader from "./ShaderLoader.js";
 const log = makeLogger("MovingParticles");
 
 export default class MovingParticles extends Actor {
-  constructor(stage, paths = {}, probability = []) {
+  constructor({ stage, paths = {}, probability = [], color } = {}) {
     super(stage);
 
     this.probability = probability;
 
     this.paths = paths;
+    this.color = color;
 
     this.pointCount = 200;
     this.speed = 0.005;
@@ -300,10 +301,15 @@ export default class MovingParticles extends Actor {
       // array[i3 + 1] = 255 / 255;
       // array[i3 + 2] = 255 / 255;
 
+      /* random */
+      array[i3 + 0] = this.color.r;
+      array[i3 + 1] = this.color.g;
+      array[i3 + 2] = this.color.b;
+
       /* yellow */
-      array[i3 + 0] = 246 / 255;
-      array[i3 + 1] = 203 / 255;
-      array[i3 + 2] = 105 / 255;
+      // array[i3 + 0] = 246 / 255;
+      // array[i3 + 1] = 203 / 255;
+      // array[i3 + 2] = 105 / 255;
     }
 
     return new THREE.Float32BufferAttribute(array, 3);
