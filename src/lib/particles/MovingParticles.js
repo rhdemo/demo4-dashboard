@@ -15,8 +15,8 @@ export default class MovingParticles extends Actor {
     this.color = color;
 
     this.pointCount = 200;
-    this.speed = 0.005;
-    this.delaySpread = 1;
+    this.speed = 0.008;
+    this.delaySpread = 0.5;
     this.size = 200;
     this.spread = 12;
     this.loopParticles = false;
