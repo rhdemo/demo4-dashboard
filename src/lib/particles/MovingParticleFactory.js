@@ -8,7 +8,6 @@ export default class MovingParticleFactory {
   static create(stage) {
     log("creating a moving particle object");
 
-    const probability = [0.01, 0.01, 0.9, 0.02, 0.02, 0.01, 0.01, 0.02];
     const paths = {
       nodes: 10,
       components: 2,
