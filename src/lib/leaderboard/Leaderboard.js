@@ -70,7 +70,8 @@ const app = new Vue({
 });
 
 function update() {
-  fetch("http://localhost:1234/leaders")
+  const serviceUrl = `${location.protocol}//${location.hostname}:1234/leaders`;
+  fetch(serviceUrl)
     .then(rsp => rsp.json())
     .then(leaders => {
       app.top10 = take(leaders.top10, 10);
