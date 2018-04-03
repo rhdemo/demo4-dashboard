@@ -71,10 +71,11 @@ const app = new Vue({
 
 function update() {
   let serviceUrl;
-  if (location.hostname === 'localhost') {
-    serviceUrl = 'http://localhost:1234/leaders';
-  } else if {
-    serviceUrl = 'http://demo4-dashboard-service-demo4-dashboard.apps.summit-aws.sysdeseng.com/leaders';
+  if (location.hostname === "localhost") {
+    serviceUrl = "http://localhost:1234/leaders";
+  } else {
+    serviceUrl =
+      "http://demo4-dashboard-service-demo4-dashboard.apps.summit-aws.sysdeseng.com/leaders";
   }
   fetch(serviceUrl)
     .then(rsp => rsp.json())
