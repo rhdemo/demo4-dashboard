@@ -5,9 +5,10 @@
   "main": "Gulpfile.js",
   "scripts": {
     "server": "node src/lib/server/Server.js",
-    "serve": "./node_modules/.bin/browser-sync start --server --serveStatic dist/ --files 'dist/**/*' --directory",
+    "serve":
+      "./node_modules/.bin/browser-sync start --server --serveStatic dist/ --files 'dist/**/*' --directory",
     "parcel": "./node_modules/.bin/parcel watch --no-hmr src/index.html",
-    "start": "npm run parcel & npm run serve",
+    "start": "npm run server & npm run parcel & npm run serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -24,9 +25,14 @@
   },
   "dependencies": {
     "dropzone": "^5.4.0",
+    "fetch-base64": "^2.0.0",
     "hapi": "^17.2.3",
+    "hapi-plugin-websocket": "^2.0.4",
+    "html5-websocket": "^2.0.2",
+    "http-proxy": "^1.16.2",
     "lodash": "^4.17.5",
     "node-fetch": "^2.1.1",
+    "reconnecting-websocket": "^3.2.2",
     "three": "^0.91.0",
     "update": "^0.7.4",
     "vue": "^2.5.16"

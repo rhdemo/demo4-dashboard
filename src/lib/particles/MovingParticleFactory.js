@@ -5,9 +5,10 @@ import { makeLogger } from "../logging/Logger";
 const log = makeLogger("MovingParticleFactory");
 
 export default class MovingParticleFactory {
-  static create(stage) {
+  static create(stage, image) {
     log("creating a moving particle object");
 
+    // coordinates are: [ x1, y1, x2, y2, x3, y3, ..., xN, yN ]
     const paths = {
       nodes: 10,
       components: 2,
@@ -182,6 +183,6 @@ export default class MovingParticleFactory {
     // const color = new THREE.Color(Math.random(), Math.random(), Math.random());
     const color = new THREE.Color(1, 1, 0);
 
-    return new MovingParticles({ stage, paths, probability, color });
+    return new MovingParticles({ stage, paths, probability, color, image });
   }
 }

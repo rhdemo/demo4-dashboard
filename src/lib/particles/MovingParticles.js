@@ -6,16 +6,17 @@ import ShaderLoader from "./ShaderLoader.js";
 const log = makeLogger("MovingParticles");
 
 export default class MovingParticles extends Actor {
-  constructor({ stage, paths = {}, probability = [], color } = {}) {
+  constructor({ stage, paths = {}, probability = [], color, image } = {}) {
     super(stage);
 
     this.probability = probability;
 
     this.paths = paths;
     this.color = color;
+    this.image = image;
 
-    this.pointCount = 200;
-    this.speed = 0.008;
+    this.pointCount = 100;
+    this.speed = 0.004;
     this.delaySpread = 0.5;
     this.size = 200;
     this.spread = 12;
@@ -194,47 +195,7 @@ export default class MovingParticles extends Actor {
 
   _getPathsUniform() {
     log("creating paths attribute");
-    // [ x1, y1, x2, y2, x3, y3, ..., xN, yN ]
-    // const coords = this._transformCoordinates(this.paths.coordinates);
     return new THREE.Uniform(this.paths.coordinates);
-    // return new THREE.Uniform(
-    //   [
-    //     58, // path 0
-    //     146.2,
-    //     68,
-    //     141,
-    //     78,
-    //     146.4,
-    //     88,
-    //     141,
-
-    //     58, // path 1
-    //     146.2,
-    //     68,
-    //     152,
-    //     78,
-    //     157,
-    //     88,
-    //     162,
-
-    //     58, // path 2
-    //     146.2,
-    //     68,
-    //     141,
-    //     78,
-    //     136,
-    //     88,
-    //     130.4
-    //   ].map((v, i) => {
-    //     if (i % 2 === 0) {
-    //       // offset x values a certain amount to center the graph
-    //       return (v - 58 - 13.1) * 19.4;
-    //     } else {
-    //       // offset y values a certain amount to center the graph
-    //       return (v - 146) * 18.6;
-    //     }
-    //   })
-    // );
   }
 
   _getProgressAttribute(delay) {
@@ -270,7 +231,7 @@ export default class MovingParticles extends Actor {
     const array = new Float32Array(this.pointCount);
 
     for (let i = 0; i < this.pointCount; i++) {
-      array[i] = -this.delaySpread * Math.random();
+      array[i] = -this.delaySpread * Math.random() - 0.1;
     }
 
     return new THREE.Float32BufferAttribute(array, 1);

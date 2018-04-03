@@ -1,6 +1,6 @@
 import * as THREE from "three";
 // import OrbitControls from "./OrbitControls.js";
-import DropImageSource from "./DropImageSource.js";
+import ScoredImageSource from "./ScoredImageSource.js";
 import ParticleImageFactory from "./ParticleImageFactory.js";
 import MovingParticleFactory from "./MovingParticleFactory.js";
 import { makeLogger } from "../logging/Logger.js";
@@ -25,20 +25,23 @@ export default class Stage {
     // this._initControls();
 
     this._initImageSource();
-    this._initMovingParticles();
   }
   _initControls() {
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
   }
   _initImageSource() {
-    this._initDropImageSource();
+    this._initScoredImageSource();
   }
-  _initDropImageSource() {
-    const dropSource = new DropImageSource();
-    dropSource.onImage(pixels => {
-      log(`image dropped, ${pixels.width}x${pixels.height}`);
-      const particleImage = ParticleImageFactory.create(this, pixels);
-      this._registerActor(particleImage);
+  _initScoredImageSource() {
+    this.imageSource = new ScoredImageSource();
+    this.imageSource.onImage(scoredImage => {
+      log(`scored image is on stage!`);
+      // const particleImage = ParticleImageFactory.create(
+      //   this,
+      //   scoredImage.pixels
+      // );
+      // this._registerActor(particleImage);
+      this._initMovingParticles();
     });
   }
   _initMovingParticles() {
