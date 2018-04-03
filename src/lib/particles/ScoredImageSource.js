@@ -13,7 +13,8 @@ export default class ScoredImageSource extends ImageSource {
     this._initScoreStream();
   }
   _initScoreStream() {
-    this.scoreStream = new ScoreStream("ws://10.13.49.39:1234/images");
+    const serviceUrl = `ws://${location.hostname}:1234/images`;
+    this.scoreStream = new ScoreStream(serviceUrl);
     this.scoreStream.addEventListener("open", () =>
       console.log("[ScoredImageSource] stream open")
     );
