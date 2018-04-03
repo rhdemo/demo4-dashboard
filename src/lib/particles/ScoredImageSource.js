@@ -13,7 +13,12 @@ export default class ScoredImageSource extends ImageSource {
     this._initScoreStream();
   }
   _initScoreStream() {
-    const serviceUrl = `ws://${location.hostname}:1234/images`;
+    let serviceUrl;
+    if (location.hostname === 'localhost') {
+      serviceUrl = 'ws://localhost:1234/images';
+    } else if {
+      serviceUrl = 'ws://demo4-dashboard-service-demo4-dashboard.apps.summit-aws.sysdeseng.com/images';
+    }
     this.scoreStream = new ScoreStream(serviceUrl);
     this.scoreStream.addEventListener("open", () =>
       console.log("[ScoredImageSource] stream open")
