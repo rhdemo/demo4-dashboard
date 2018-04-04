@@ -1,65 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="423.7px"
-	 height="943.4px" viewBox="0 0 423.7 943.4" style="enable-background:new 0 0 423.7 943.4;" xml:space="preserve">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="419.2px" height="1019.8px" viewBox="0 0 419.2 1019.8" style="enable-background:new 0 0 419.2 1019.8;"
+	 xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#FBAB04;}
-	.st1{fill:#E59016;}
-	.st2{fill:#1D1838;}
-	.st3{fill:url(#SVGID_1_);}
-	.st4{fill:url(#SVGID_2_);}
-	.st5{fill:url(#SVGID_3_);}
-	.st6{fill:url(#SVGID_4_);}
-	.st7{fill:url(#SVGID_5_);}
-	.st8{fill:url(#SVGID_6_);}
-	.st9{fill:#3C3261;}
-	.st10{fill:url(#SVGID_7_);}
-	.st11{fill:url(#SVGID_8_);}
-	.st12{fill:#16142D;}
-	.st13{fill:url(#SVGID_9_);}
-	.st14{fill:url(#SVGID_10_);}
-	.st15{fill:url(#SVGID_11_);}
-	.st16{fill:url(#SVGID_12_);}
-	.st17{fill:#0E0C21;}
-	.st18{clip-path:url(#SVGID_14_);fill:#2C2A5B;}
-	.st19{clip-path:url(#SVGID_14_);fill:#222045;}
-	.st20{clip-path:url(#SVGID_14_);fill:#1C1A37;}
-	.st21{clip-path:url(#SVGID_14_);fill:#121223;}
-	.st22{clip-path:url(#SVGID_14_);fill:#0E0E1C;}
-	.st23{clip-path:url(#SVGID_14_);}
-	.st24{clip-path:url(#SVGID_14_);fill:url(#SVGID_15_);}
-	.st25{clip-path:url(#SVGID_14_);fill:url(#SVGID_16_);}
-	.st26{clip-path:url(#SVGID_14_);fill:url(#SVGID_17_);}
-	.st27{clip-path:url(#SVGID_14_);fill:url(#SVGID_18_);}
-	.st28{clip-path:url(#SVGID_14_);fill:url(#SVGID_19_);}
-	.st29{clip-path:url(#SVGID_14_);fill:url(#SVGID_20_);}
-	.st30{clip-path:url(#SVGID_14_);fill:url(#SVGID_21_);}
-	.st31{clip-path:url(#SVGID_14_);fill:#080811;}
-	.st32{clip-path:url(#SVGID_14_);fill:url(#SVGID_22_);}
-	.st33{clip-path:url(#SVGID_14_);fill:url(#SVGID_23_);}
-	.st34{clip-path:url(#SVGID_14_);fill:url(#SVGID_24_);}
-	.st35{fill:#18182D;}
-	.st36{display:none;}
-	.st37{display:inline;fill:#6DF206;}
+	.st0{fill:#16162D;}
 </style>
-<g id="Layer_1">
-</g>
-<g id="Layer_2">
-	<defs>
-		<rect id="SVGID_13_" x="-257.1" y="1542.1" width="1920" height="1079.6"/>
-	</defs>
-	<clipPath id="SVGID_1_">
-		<use xlink:href="#SVGID_13_"  style="overflow:visible;"/>
-	</clipPath>
-</g>
-<g id="Layer_4">
-	<polygon class="st35" points="396.2,944.4 349.6,905.8 338.5,857.1 338.5,820.4 285.5,742 301,586.9 263.6,536.8 270.3,433.4 
-		240.2,335 260.5,303.3 238.7,191.5 260.5,158.2 234.8,26 198.1,6.8 166.9,41.4 187.2,246.6 113.9,328.3 139.6,359.6 147.4,494.7 
-		154.4,504 154.4,588.5 104.5,636.9 130.3,668.2 120.9,815 95.2,783.7 0,878.8 25.8,910.1 25.8,944.8 	"/>
-	<polygon points="422,944.7 422,913.4 384.3,888.4 374.3,851.7 331.2,773.3 346.8,618.2 289.4,568.1 299,464.7 266,366.3 
-		286.3,334.6 264.4,222.8 268.3,179.5 252,40.9 234.8,26 192.7,72.7 213,277.9 139.6,359.6 113.9,328.3 118.9,458.6 147.4,494.7 
-		180.2,538.1 180.2,619.8 130.3,668.2 104.5,636.9 95.2,783.7 120.9,815 25.8,910.1 0,878.8 0,943.4 25.8,944.8 	"/>
-</g>
-<g id="Layer_3" class="st36">
-</g>
+<polygon class="st0" points="396.2,1019.7 396.2,927.4 338.5,902.4 338.5,865.7 285.5,787.3 301,632.2 263.6,582.1 293.3,478.7 
+	240.2,380.3 260.5,348.6 238.7,236.8 260.5,203.5 226.2,54.9 211.3,42.2 167.7,90.8 187.2,291.9 113.9,373.6 121.7,508.7 
+	154.4,552.1 154.4,633.8 104.5,682.2 95.2,829 0,924.1 0,1019.8 "/>
+<polygon points="419.2,1019.7 419.2,907.4 361.5,882.4 361.5,845.7 308.5,767.3 324,612.2 286.6,562.1 316.3,458.7 263.2,360.3 
+	283.5,328.6 261.7,216.8 283.5,183.5 249.2,34.9 232,20 189.9,66.7 210.2,271.9 136.9,353.6 144.7,488.7 177.4,532.1 177.4,613.8 
+	127.5,662.2 118.2,809 23,904.1 23,1019.8 "/>
 </svg>
