@@ -47,9 +47,15 @@ export default class Stage {
   _initMovingParticles() {
     const mp = MovingParticleFactory.create(this);
     this._registerActor(mp);
+    mp.onComplete(mp => this._unregisterActor(mp));
   }
   _registerActor(actor) {
+    log(`adding actor ${actor.name} to the stage`);
     this.actors.push(actor);
+  }
+  _unregisterActor(actor) {
+    log(`removing actor ${actor.name} from the stage`);
+    this.actors.splice(this.actors.indexOf(actor), 1);
   }
   _initCamera() {
     // this._initOrthographicCamera();

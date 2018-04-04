@@ -69,10 +69,11 @@ class Path {
     this.points.push(point);
   }
   pad(length) {
+    console.log(`started at length ${this.points.length}`);
     while (length > this.points.length) {
-      this.points.push(this.points[this.points.length - 2]);
-      this.points.push(this.points[this.points.length - 2]);
+      this.points.push(this.points[this.points.length - 1]);
     }
+    console.log(`ended at length ${this.points.length}`);
   }
   end() {
     // dim all points
@@ -130,6 +131,9 @@ export default class PathTracer {
       .map("length")
       .uniq()
       .value();
+
+    console.log(uniqPathLengths);
+    console.log(this.finalizedPaths);
 
     if (uniqPathLengths.length === 1) {
       return false; // path is valid
