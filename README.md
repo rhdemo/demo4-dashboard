@@ -3,9 +3,21 @@
 Pipes and caves and particles!
 
 ## Hacking
-
     npm install
+    npm build
     npm start
+
+## Running on OpenShift
+You can deploy and run this application on OpenShift by ensuring that you are
+logged into your OpenShift instance (this can be minishift), and then run
+
+```sh
+$ npm run deploy
+```
+
+This will run the build to generate the site, then deploy it to OpenShift,
+creating a BuildConfiguration, a Deployment, a Service and a Route, exposing
+the application over port 8080.
 
 ## Development notes
 
