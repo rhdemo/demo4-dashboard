@@ -1,6 +1,8 @@
 import { max, chain, map, uniq, flatten, each } from "lodash";
 import * as lodash from "lodash";
 
+const GRID_SIZE = 10;
+
 window._ = lodash;
 
 ////////////////////////////////////////////////////////////////////////
@@ -257,6 +259,11 @@ export default class PathTracer {
         x = ev.clientX;
         y = ev.clientY;
       }
+
+      // align to grid by rounding to nearest multiple of GRID_SIZE
+      x -= x % GRID_SIZE;
+      y -= y % GRID_SIZE;
+
       this.movingPoint.style.left = `${x}px`;
       this.movingPoint.style.top = `${y}px`;
     }
@@ -271,7 +278,7 @@ export default class PathTracer {
       // and this prevents overlapping
       ev.target.hidden = true;
     } else if (clickedOnCanvas) {
-      this._addPoint(ev.clientX, ev.clientY);
+      this._addPoint(this.movingPoint.offsetLeft, this.movingPoint.offsetTop);
     }
   }
 
