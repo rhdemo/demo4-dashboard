@@ -4,4 +4,7 @@ canvas {
     // pointer-events: none;
     top: 0;
     left: 0;
+    &.path-tool-active {
+        z-index: 2000;
+    }
 }

@@ -39,7 +39,7 @@ class Point {
       left: ${this.x}px;
       top: ${this.y}px;
       cursor: pointer;
-      z-index: 50;
+      z-index: 5000;
     `
     );
     p.classList.add("point");
@@ -109,6 +109,8 @@ export default class PathTracer {
     this.domEls.startPath.classList.add("active");
 
     this._startMouse();
+
+    this._raiseCanvas();
   }
 
   endPath() {
@@ -125,6 +127,16 @@ export default class PathTracer {
     this.domEls.startPath.classList.remove("active");
 
     this.currentPath = undefined;
+
+    this._lowerCanvas();
+  }
+
+  _raiseCanvas() {
+    document.querySelector("canvas").classList.add("path-tool-active");
+  }
+
+  _lowerCanvas() {
+    document.querySelector("canvas").classList.remove("path-tool-active");
   }
 
   _pathsInvalid() {
