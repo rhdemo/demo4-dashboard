@@ -6,7 +6,7 @@ const WebSocket = require("ws");
 const fetch64 = require("fetch-base64");
 
 const scores = new ScoreStream(
-  "ws://microservice-b-microservice-b.apps.summit-aws.sysdeseng.com/dashboard",
+  "ws://score-gateway-scavenger-hunt-microservice.apps.summit-aws.sysdeseng.com/dashboard",
   true
 );
 

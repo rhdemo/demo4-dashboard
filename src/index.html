@@ -48,7 +48,7 @@
       <div class="leaderboard">
         <h2 class="leaderboard__header">Top 10</h2>
         <transition-group appear name="lbchange" tag="ol">
-          <li v-for="(leader, index) in top10" v-bind:key="leader.name" class="leaderboard__item">
+          <li v-for="(leader, index) in top10" v-bind:key="leader.playerId" class="leaderboard__item">
             <div class="leaderboard__position">
               {{ index + 1 }}
               <sup>{{ ord[index] }}</sup>

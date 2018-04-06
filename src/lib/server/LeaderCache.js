@@ -6,7 +6,7 @@ let leaders = [];
 function update() {
   http
     .get(
-      "http://vertx-player-microservice-b.apps.summit-aws.sysdeseng.com/leaderboard",
+      "http://score-gateway-scavenger-hunt-microservice.apps.summit-aws.sysdeseng.com/leaderboard",
       res => {
         const { statusCode } = res;
         const contentType = res.headers["content-type"];
