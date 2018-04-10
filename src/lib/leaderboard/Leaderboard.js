@@ -9,14 +9,16 @@ log("leaderboard initializing");
 const app = new Vue({
   el: "#dashboard",
   data: {
-    // default starting data so the leaderboard isn't blank if there's no
-    // connection to the service, it' just a snapshot of random data from
-    // microservice B
+    pictureCount: 0,
+    totalPoints: 0,
     currentPlayers: 0,
     top10: [],
     ord: ["st", "nd", "rd", "th", "th", "th", "th", "th", "th", "th"]
   }
 });
+
+// it's hacky time
+window.leaderboard = app;
 
 function update() {
   let serviceUrl;
