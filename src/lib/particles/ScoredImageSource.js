@@ -41,6 +41,10 @@ export default class ScoredImageSource extends ImageSource {
       log(`received image: ${data.imageURL.slice(data.imageURL.length - 25)}`);
       const pixelator = new Pixelator();
       pixelator.init(data.image).then(p => {
+        if (window.leaderboard) {
+          leaderboard.pictureCount = data.totalPictureCount;
+          leaderboard.totalPoints = data.totalPoints;
+        }
         log(`pixels retrieved for image: ${data.imageURL}`);
         data.pixels = p.getImageData();
         this._handleImage(data);

@@ -5,6 +5,11 @@ const ScoreStream = require("./ScoreStream");
 const WebSocket = require("ws");
 const fetch64 = require("fetch-base64");
 
+const model = {
+  totalPoints: 0,
+  totalPictureCount: 0
+};
+
 const scores = new ScoreStream(
   "ws://score-gateway-scavenger-hunt-microservice.apps.summit-aws.sysdeseng.com/dashboard",
   true
@@ -61,6 +66,14 @@ server.route({
               if (!data.imageURL) {
                 return;
               }
+
+              // update running totals
+              model.totalPoints += data.score;
+              model.totalPictureCount += 1;
+
+              data.totalPoints = model.totalPoints;
+              data.totalPictureCount = model.totalPictureCount;
+
               fetch64.remote(data.imageURL).then(result => {
                 const encodedImage = result[1];
                 console.log(
