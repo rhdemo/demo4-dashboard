@@ -1,5 +1,8 @@
 import { chain } from "lodash";
+import { makeLogger } from "../logging/Logger.js";
 import * as THREE from "three";
+
+const log = makeLogger("Free");
 
 /**
  * Remove a three.js mesh from the scene and free all its memory.
@@ -12,6 +15,7 @@ export default function free(scene, mesh) {
   // dispose of the geometry
   if (mesh.geometry) {
     mesh.geometry.dispose();
+    log(`disposed of geometry`);
   }
 
   if (mesh.material) {
@@ -21,10 +25,12 @@ export default function free(scene, mesh) {
       .map("value")
       .each(t => {
         t.dispose();
+        log(`disposed of material texture`);
       })
       .value();
 
     // dispose of the material
     mesh.material.dispose();
+    log(`disposed of material`);
   }
 }

@@ -56,6 +56,7 @@ export default class Stage {
   _unregisterActor(actor) {
     log(`removing actor ${actor.name} from the stage`);
     this.actors.splice(this.actors.indexOf(actor), 1);
+    actor.destroy();
   }
   _initCamera() {
     // this._initOrthographicCamera();

@@ -2,6 +2,7 @@ import * as THREE from "three";
 import Actor from "./Actor.js";
 import { makeLogger } from "../logging/Logger.js";
 import Paths from "./Paths.js";
+import free from "./Free.js";
 
 const log = makeLogger("ParticleImage");
 
@@ -27,6 +28,10 @@ export default class ParticleImage extends Actor {
     if (this.moving) {
       this._updateMove();
     }
+  }
+
+  destroy() {
+    free(this.stage.scene, this.points);
   }
 
   _startMove() {
@@ -109,10 +114,10 @@ export default class ParticleImage extends Actor {
 
   _getPoints(geometry, material) {
     log("creating points");
-    const points = new THREE.Points(geometry, material);
-    points.position.x -= this.imagedata.width / 2;
-    points.position.y -= this.imagedata.height / 2;
-    return points;
+    this.points = new THREE.Points(geometry, material);
+    this.points.position.x -= this.imagedata.width / 2;
+    this.points.position.y -= this.imagedata.height / 2;
+    return this.points;
   }
 
   _getMaterial() {
