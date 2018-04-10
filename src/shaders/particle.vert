@@ -27,6 +27,7 @@ uniform float loopParticles;
 
 varying vec3 vColor;
 varying float vDiscard;
+varying vec2 vPathPos;
 
 // p = progress [0..1)
 // pn = path number, indicating whether this particle should use path 0, path 1, etc
@@ -77,6 +78,7 @@ void main() {
     }
 
     vec2 pathPos = pointOnPath(p, int(path), shouldLoop);
+    vPathPos = pathPos;
 
     if (pathPos.x == DISCARD_THIS) {
         vDiscard = 1.0;
