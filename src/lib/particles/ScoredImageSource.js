@@ -14,10 +14,13 @@ export default class ScoredImageSource extends ImageSource {
   }
   _initScoreStream() {
     let serviceUrl;
-    if (location.hostname === 'localhost') {
-      serviceUrl = 'ws://localhost:1234/images';
+    if (location.hostname.includes(".com")) {
+      serviceUrl =
+        "ws://demo4-dashboard-service-demo4-dashboard.apps.summit-aws.sysdeseng.com/images";
+    } else if (location.hostname.includes("localhost")) {
+      serviceUrl = "ws://localhost:1234/images";
     } else {
-      serviceUrl = 'ws://demo4-dashboard-service-demo4-dashboard.apps.summit-aws.sysdeseng.com/images';
+      serviceUrl = "ws://10.13.49.39:1234/images";
     }
     this.scoreStream = new ScoreStream(serviceUrl);
     this.scoreStream.addEventListener("open", () =>

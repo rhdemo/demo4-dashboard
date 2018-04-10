@@ -22,11 +22,13 @@ window.leaderboard = app;
 
 function update() {
   let serviceUrl;
-  if (location.hostname === "localhost") {
-    serviceUrl = "http://localhost:1234/leaders";
-  } else {
+  if (location.hostname.includes(".com")) {
     serviceUrl =
       "http://demo4-dashboard-service-demo4-dashboard.apps.summit-aws.sysdeseng.com/leaders";
+  } else if (location.hostname.includes("localhost")) {
+    serviceUrl = "http://localhost:1234/leaders";
+  } else {
+    serviceUrl = "http://10.13.49.39:1234/leaders";
   }
   fetch(serviceUrl)
     .then(rsp => rsp.json())
