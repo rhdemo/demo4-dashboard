@@ -1,5 +1,6 @@
 const fetch = require("node-fetch");
 const http = require("http");
+const _ = require("lodash");
 
 let leaders = [];
 
@@ -29,6 +30,7 @@ function update() {
         res.on("end", () => {
           try {
             const parsedData = JSON.parse(rawData);
+            parsedData.top10 = _.uniqBy(parsedData.top10, "playerId"); // remove any duplicate playerIds
             leaders = parsedData;
           } catch (e) {
             console.error(e.message);

@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { filter, max, min } from "lodash";
 import Actor from "./Actor.js";
 import { makeLogger } from "../logging/Logger.js";
 import ShaderLoader from "./ShaderLoader.js";
@@ -16,12 +17,12 @@ export default class MovingParticles extends Actor {
     this.color = color;
     this.image = image;
 
-    this.pointCount = 100;
-    this.speed = 0.008;
-    this.delaySpread = 0.5;
-    this.size = 200;
-    this.spread = 12;
-    this.loopParticles = false;
+    this.pointCount = 140;
+    this.speed = 0.003;
+    this.delaySpread = 1.0;
+    this.size = 14;
+    this.spread = 2;
+    this.loopParticles = true;
     this.progress = 0;
 
     log("created");
@@ -29,7 +30,7 @@ export default class MovingParticles extends Actor {
     this._initRaycasting();
     this._initParticles();
 
-    setTimeout(() => this._raycastPaths(), 500);
+    this._raycastPaths();
   }
   update() {
     this._updateMove();
@@ -52,19 +53,11 @@ export default class MovingParticles extends Actor {
       progressAttr.array[i] += this.speed;
     }
 
-    // https://www.desmos.com/calculator/u2fjoyupeb
-    const x0 = 1.45;
-    const y0 = 1;
-    const x1 = 1.5;
-    const y1 = 0;
-    this.material.uniforms.opacity.value =
-      (y1 - y0) / (x1 - x0) * (this.progress - x0) + y0;
-
     progressAttr.needsUpdate = true;
   }
 
   _checkProgress() {
-    if (this.progress >= 1 + this.delaySpread) {
+    if (this.progress >= 1 + this.delaySpread && !this.loopParticles) {
       log(`moving particles is complete, destroying`);
       this.destroy();
       this.completeHandler(this);
@@ -115,6 +108,15 @@ export default class MovingParticles extends Actor {
     this.material.uniforms.paths.value.forEach(
       (v, i, c) => (c[i] = transformedCoords[i])
     );
+
+    // set the minimum and maximum X values
+    const xValues = filter(
+      this.material.uniforms.paths.value,
+      (v, i) => i % 2 === 0
+    );
+
+    this.material.uniforms.xStart.value = min(xValues);
+    this.material.uniforms.xEnd.value = max(xValues);
   }
 
   _initParticles(addToScene = true) {
@@ -169,22 +171,26 @@ export default class MovingParticles extends Actor {
       .replace("${PATH_SPREAD}", this.spread.toPrecision(8))
       .replace("${PATH_COUNT}", this.paths.count);
 
-    return new THREE.ShaderMaterial({
+    const material = new THREE.ShaderMaterial({
       uniforms: {
         size: { type: "t", value: this.size },
-        paths: this._getPathsUniform(),
         opacity: { type: "f", value: 1.0 },
+        xStart: { type: "f", value: 1.0 },
+        xEnd: { type: "f", value: 1.0 },
         loopParticles: { type: "f", value: +this.loopParticles },
         texture: {
           value: new THREE.TextureLoader().load(
             document.querySelector("#particle-sprite").src
           )
-        }
+        },
+        paths: this._getPathsUniform()
       },
       transparent: true,
       vertexShader,
       fragmentShader
     });
+
+    return material;
   }
 
   _getPositionAttribute() {

@@ -67,7 +67,7 @@ export default class Stage {
     const h = this.container.clientHeight;
     log(`res: ${w} x ${h}`);
     this.camera = new THREE.PerspectiveCamera(70, w / h, 1, 3000);
-    this.camera.position.z = 600;
+    this.camera.position.z = 100;
   }
   _initOrthographicCamera() {
     const w = this.container.clientWidth;
@@ -98,7 +98,7 @@ export default class Stage {
     this.actors.forEach(actor => actor.update(this));
   }
   _render() {
-    requestAnimationFrame(this._render.bind(this));
+    requestAnimationFrame(() => this._render());
     this._update();
     this.renderer.render(this.scene, this.camera);
   }

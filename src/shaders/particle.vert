@@ -24,10 +24,14 @@ attribute float variation;
 uniform float size;
 uniform float paths[PATH_NODES * PATH_COMPONENTS * PATH_COUNT];
 uniform float loopParticles;
+uniform float xStart;
+uniform float xEnd;
 
 varying vec3 vColor;
 varying float vDiscard;
 varying vec2 vPathPos;
+varying float vOpacity;
+varying float vVariation;
 
 // p = progress [0..1)
 // pn = path number, indicating whether this particle should use path 0, path 1, etc
@@ -44,9 +48,9 @@ vec2 pointOnPath(float p, int pn, bool hideStationary) {
     float a = fract(p * float((PATH_NODES - PATH_COMPONENTS + 1)));
 
     // vary the positions per particle to spread them out out
-    float pvar = progress + moveDelay + variation;
+    float pvar = (progress + moveDelay + variation) * variation * 10.0;
     float xvar = variation * SPREAD * (sin(pvar) + cos(pvar));
-    float yvar = variation * SPREAD * (sin(pvar) - cos(pvar));
+    float yvar = variation * SPREAD * (sin(pvar) + cos(pvar));
 
     vec2 p1 = vec2(paths[x1i] + xvar, paths[y1i] + yvar);
     vec2 p2 = vec2(paths[x2i] + xvar, paths[y2i] + yvar);
@@ -66,6 +70,7 @@ vec2 pointOnPath(float p, int pn, bool hideStationary) {
 
 void main() {
     vColor = color;
+    vVariation = variation;
 
     // if loopParticles is enabled, then mod the progress, causing the
     // particles to restart their paths upon completion
@@ -80,16 +85,19 @@ void main() {
     vec2 pathPos = pointOnPath(p, int(path), shouldLoop);
     vPathPos = pathPos;
 
+    /* float xStart = 500.0; */
+    /* float xEnd = 2190.0; */
+    float xProgress = (pathPos.x - xStart) / (xEnd - xStart);
+    vOpacity = 1.0 - pow(xProgress - 0.5, 12.0) / pow(0.5, 12.0);
+    /* vOpacity = xProgress; */
+
     if (pathPos.x == DISCARD_THIS) {
         vDiscard = 1.0;
         return;
     }
 
-    /* pathPos.x += cos(progress * 100.0 - moveDelay * moveDelay) * 10.0; */
-    /* pathPos.y += sin(progress * 100.0 - moveDelay * moveDelay) * 10.0; */
-
     vec4 mvPosition = modelViewMatrix * vec4( pathPos, 0.0, 1.0 );
 
-    gl_PointSize = size * ( 100.0 / -mvPosition.z );
+    gl_PointSize = size;
     gl_Position = projectionMatrix * mvPosition;
 }
