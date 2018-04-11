@@ -20,7 +20,7 @@ export default class ScoredImageSource extends ImageSource {
     } else if (location.hostname.includes("localhost")) {
       serviceUrl = "ws://localhost:1234/images";
     } else {
-      serviceUrl = "ws://10.13.49.39:1234/images";
+      serviceUrl = `ws://${location.hostname}:1234/images`;
     }
     this.scoreStream = new ScoreStream(serviceUrl);
     this.scoreStream.addEventListener("open", () =>

@@ -28,7 +28,7 @@ function update() {
   } else if (location.hostname.includes("localhost")) {
     serviceUrl = "http://localhost:1234/leaders";
   } else {
-    serviceUrl = "http://10.13.49.39:1234/leaders";
+    serviceUrl = `http://${location.hostname}:1234/leaders`;
   }
   fetch(serviceUrl)
     .then(rsp => rsp.json())
