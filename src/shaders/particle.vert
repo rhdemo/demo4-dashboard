@@ -50,7 +50,7 @@ vec2 pointOnPath(float p, int pn, bool hideStationary) {
     // vary the positions per particle to spread them out out
     float pvar = (progress + moveDelay + variation) * variation * 10.0;
     float xvar = variation * SPREAD * (sin(pvar) + cos(pvar));
-    float yvar = variation * SPREAD * (sin(pvar) + cos(pvar));
+    float yvar = variation * SPREAD * (cos(pvar) - sin(pvar));
 
     vec2 p1 = vec2(paths[x1i] + xvar, paths[y1i] + yvar);
     vec2 p2 = vec2(paths[x2i] + xvar, paths[y2i] + yvar);
