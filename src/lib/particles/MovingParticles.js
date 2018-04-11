@@ -22,7 +22,7 @@ export default class MovingParticles extends Actor {
     this.delaySpread = 1.0;
     this.size = 14;
     this.spread = 2;
-    this.loopParticles = true;
+    this.loopParticles = false;
     this.progress = 0;
 
     log("created");
