@@ -88,7 +88,7 @@ void main() {
     /* float xStart = 500.0; */
     /* float xEnd = 2190.0; */
     float xProgress = (pathPos.x - xStart) / (xEnd - xStart);
-    vOpacity = 1.0 - pow(xProgress - 0.5, 12.0) / pow(0.5, 12.0);
+    vOpacity = 1.0 - pow(2.0 * xProgress - 1.0, 8.0);
     /* vOpacity = xProgress; */
 
     if (pathPos.x == DISCARD_THIS) {
