@@ -5,7 +5,7 @@ import { makeLogger } from "../logging/Logger";
 const log = makeLogger("MovingParticleFactory");
 
 export default class MovingParticleFactory {
-  static create(stage, image) {
+  static create(stage, image, path) {
     log("creating a moving particle object");
 
     // coordinates are: [ x1, y1, x2, y2, x3, y3, ..., xN, yN ]
@@ -290,7 +290,13 @@ export default class MovingParticleFactory {
     };
 
     const probability = new Array(paths.count);
-    probability[Math.floor(probability.length * Math.random())] = 1;
+
+    if (typeof path === "undefined") {
+      // default to random path
+      path = Math.floor(probability.length * Math.random());
+    }
+
+    probability[path] = 1;
 
     // const color = new THREE.Color(Math.random(), Math.random(), Math.random());
     const color = new THREE.Color(1, 1, 0);
