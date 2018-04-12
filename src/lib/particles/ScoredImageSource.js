@@ -52,7 +52,7 @@ export default class ScoredImageSource extends ImageSource {
         }
         log(`pixels retrieved for image: ${data.imageURL}`);
         data.pixels = p.getImageData();
-        this._handleImage(data);
+        this._handleImage(data, p.img);
       });
     });
   }

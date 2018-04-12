@@ -12,6 +12,7 @@ export default class Stage {
     log("created");
     this.actors = [];
     this.container = container;
+    this.imageCount = 0;
 
     this._init();
 
@@ -41,8 +42,21 @@ export default class Stage {
   }
   _initScoredImageSource() {
     this.imageSource = new ScoredImageSource();
-    this.imageSource.onImage(scoredImage => {
+    this.imageSource.onImage((scoredImage, imgEl) => {
       log(`scored image is on stage!`);
+
+      this.imageCount++;
+
+      if (window.leaderboard) {
+        const imgModel = { src: imgEl.src, id: this.imageCount };
+        leaderboard.scoredImages.push(imgModel);
+        setTimeout(() => {
+          const i = leaderboard.scoredImages.indexOf(imgModel);
+          console.log(`removing ${i}`, imgModel);
+          leaderboard.scoredImages.splice(i, 1);
+        }, 4000);
+      }
+
       // const particleImage = ParticleImageFactory.create(
       //   this,
       //   scoredImage.pixels

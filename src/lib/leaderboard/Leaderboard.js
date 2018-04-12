@@ -13,7 +13,8 @@ const app = new Vue({
     totalPoints: 0,
     currentPlayers: 0,
     top10: [],
-    ord: ["st", "nd", "rd", "th", "th", "th", "th", "th", "th", "th"]
+    ord: ["st", "nd", "rd", "th", "th", "th", "th", "th", "th", "th"],
+    scoredImages: []
   }
 });
 

@@ -10,8 +10,8 @@ export default class ImageSource {
     log("registering onImage handler");
     this.handlers.push(fn);
   }
-  _handleImage(image) {
+  _handleImage(...args) {
     log("handling image");
-    this.handlers.forEach(fn => fn(image));
+    this.handlers.forEach(fn => fn(...args));
   }
 }

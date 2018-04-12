@@ -88,7 +88,7 @@ server.route({
           });
 
           // send a single fabricated message after a short wait
-          // setInterval(() => {
+          // setTimeout(() => {
           //   if (ws.readyState === WebSocket.OPEN) {
           //     const data = {
           //       imageURL:

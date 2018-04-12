@@ -23,6 +23,16 @@ body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   position: relative;
+
+  .scored-image {
+      position: absolute;
+      top: 180px;
+      left: 80px;
+      z-index: 100;
+      animation: image-fall 2s ease-in 0s 1 normal forwards,
+                 image-fade 2s ease-in-out 0s 1 normal forwards;
+  }
+
   &.training {
       .pictures, .pipes h1, .points, .top, .leaderboard {
           transition: 0.3s linear opacity;
@@ -282,6 +292,34 @@ sup {
     100% {
         filter: opacity(0)
     }
+}
+
+@keyframes image-fall {
+    0% { top: 100px; left: 100px; transform: scale(1) rotate(0deg)} 
+    50% { top: 420px; left: 100px; transform: scale(1) rotate(0deg) } 
+    100% { top: 500px; left: 400px;transform: scale(0.2) rotate(26deg)} 
+}
+
+@keyframes image-fade {
+    0% { opacity: 0;}
+    10% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0;}
+}
+
+/* #subject is an example object with base styling you want to animate */
+/* ( <div id='subject' class='animation'></div> ) */
+#subject { 
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    background-color: rgba(255,34,5,0.8);
+    top: 50%;
+    left: 50%;
+    margin-top: -125px;
+    margin-left: -125px;
+    border-radius: 250px;
+
 }
 
 .parcel-preload {

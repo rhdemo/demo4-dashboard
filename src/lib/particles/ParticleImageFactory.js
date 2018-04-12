@@ -6,6 +6,10 @@ const log = makeLogger("ParticleImageFactory");
 export default class ParticleImageFactory {
   static create(stage, imagedata) {
     log("creating a particle image");
-    return new ParticleImage(stage, imagedata);
+    const pi = new ParticleImage(stage, imagedata);
+
+    console.log(pi);
+
+    return pi;
   }
 }

@@ -24,6 +24,13 @@
           <small>transactions</small>
         </h1>
 
+        <transition-group name="scored-image-t" tag="div">
+          <div v-for="image in scoredImages" v-bind:key="image.id">
+            <img class="scored-image" v-bind:src="image.src" />
+          </div>
+        </transition-group>
+
+
         <div class="network">
           <img src="images/pipes-top.png" class="network--top">
           <img src="images/pipes-bottom.png" class="network--bottom">

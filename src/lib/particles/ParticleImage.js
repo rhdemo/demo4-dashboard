@@ -18,16 +18,14 @@ export default class ParticleImage extends Actor {
 
     this._initParticles();
 
-    setTimeout(this._startMove.bind(this), 1000);
+    // setTimeout(this._startMove.bind(this), 1000);
   }
   update() {
     if (window.jitter) {
       this._jitterParticles();
     }
 
-    if (this.moving) {
-      this._updateMove();
-    }
+    this._updateMove();
   }
 
   destroy() {
