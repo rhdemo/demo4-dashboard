@@ -8,7 +8,7 @@ import free from "./Free.js";
 const log = makeLogger("MovingParticles");
 
 export default class MovingParticles extends Actor {
-  constructor({ stage, paths = {}, probability = [], color, image } = {}) {
+  constructor({ stage, paths = {}, probability = [], color, image, speed = 0.003, pointCount = 140, pointSize = 14} = {}) {
     super(stage);
 
     this.probability = probability;
@@ -17,10 +17,10 @@ export default class MovingParticles extends Actor {
     this.color = color;
     this.image = image;
 
-    this.pointCount = 140;
-    this.speed = 0.003;
+    this.pointCount = pointCount;
+    this.speed = speed;
     this.delaySpread = 1.0;
-    this.size = 14;
+    this.size = pointSize;
     this.spread = 2;
     this.loopParticles = false;
     this.progress = 0;
@@ -125,15 +125,12 @@ export default class MovingParticles extends Actor {
     this.geometry = this._getGeometry(this.material, this.moveDelay);
     this.points = this._getPoints(this.geometry, this.material);
 
-    log("particles initialized");
-
     if (addToScene) {
       this.stage.scene.add(this.points);
     }
   }
 
   _getGeometry(material, delay) {
-    log("creating geometry");
     const geometry = new THREE.BufferGeometry();
 
     const positions = this._getPositionAttribute();
@@ -155,13 +152,11 @@ export default class MovingParticles extends Actor {
   }
 
   _getPoints(geometry, material) {
-    log("creating points");
     const points = new THREE.Points(geometry, material);
     return points;
   }
 
   _getMaterial() {
-    log("creating material");
     const shaders = ShaderLoader.load();
 
     const fragmentShader = shaders.frag;
@@ -194,7 +189,6 @@ export default class MovingParticles extends Actor {
   }
 
   _getPositionAttribute() {
-    log("creating position attribute");
     const array = new Float32Array(this.pointCount * 3);
 
     for (let i = 0; i < this.pointCount; i++) {
@@ -231,18 +225,15 @@ export default class MovingParticles extends Actor {
   }
 
   _getPathsUniform() {
-    log("creating paths attribute");
     return new THREE.Uniform(this.paths.coordinates);
   }
 
   _getProgressAttribute(delay) {
-    log("creating progress attribute");
     const array = delay.array.slice();
     return new THREE.Float32BufferAttribute(array, 1);
   }
 
   _getPathAttribute(pathCount) {
-    log("creating path attribute");
     const array = new Float32Array(this.pointCount);
     for (let i = 0; i < this.pointCount; i++) {
       array[i] = this._pickPath(Math.random());
@@ -260,11 +251,12 @@ export default class MovingParticles extends Actor {
 
     probabilitySums.forEach((p, i, c) => (c[i] = c[i] + (c[i - 1] || 0)));
 
-    return probabilitySums.findIndex(p => x <= p);
+    const path = probabilitySums.findIndex(p => x <= p);
+
+    return path;
   }
 
   _getMoveDelayAttribute() {
-    log("creating move delay attribute");
     const array = new Float32Array(this.pointCount);
 
     for (let i = 0; i < this.pointCount; i++) {
@@ -275,7 +267,6 @@ export default class MovingParticles extends Actor {
   }
 
   _getVariationAttribute() {
-    log("creating position variation attribute");
     const array = new Float32Array(this.pointCount);
 
     for (let i = 0; i < this.pointCount; i++) {
@@ -287,7 +278,6 @@ export default class MovingParticles extends Actor {
 
   /* colors are based on positions, currently, but not forever */
   _getColorAttribute(positions) {
-    log("creating color attribute");
     const array = new Float32Array(this.pointCount * 3);
     const color = new THREE.Color();
     let vertex;

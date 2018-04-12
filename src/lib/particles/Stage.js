@@ -1,8 +1,8 @@
 import * as THREE from "three";
-// import OrbitControls from "./OrbitControls.js";
 import ScoredImageSource from "./ScoredImageSource.js";
 import ParticleImageFactory from "./ParticleImageFactory.js";
 import MovingParticleFactory from "./MovingParticleFactory.js";
+import TrainingSimulation from "./TrainingSimulation.js";
 import { makeLogger } from "../logging/Logger.js";
 
 const log = makeLogger("Stage");
@@ -18,12 +18,19 @@ export default class Stage {
     // start the animation loop
     this._render();
   }
+  hideUI() {
+    document.body.classList.add("training");
+  }
+  startTraining() {
+    setTimeout(() => TrainingSimulation.start(this, 0), 0);
+    setTimeout(() => TrainingSimulation.start(this, 1), 7000);
+    setTimeout(() => TrainingSimulation.start(this, 2), 14000);
+    setTimeout(() => TrainingSimulation.start(this, 3), 21000);
+  }
   _init() {
     this._initScene();
     this._initRenderer();
     this._initCamera();
-    // this._initControls();
-
     this._initImageSource();
   }
   _initControls() {
@@ -51,6 +58,7 @@ export default class Stage {
   }
   _registerActor(actor) {
     log(`adding actor ${actor.name} to the stage`);
+    console.log(actor);
     this.actors.push(actor);
   }
   _unregisterActor(actor) {
