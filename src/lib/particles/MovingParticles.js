@@ -8,7 +8,16 @@ import free from "./Free.js";
 const log = makeLogger("MovingParticles");
 
 export default class MovingParticles extends Actor {
-  constructor({ stage, paths = {}, probability = [], color, image, speed = 0.003, pointCount = 140, pointSize = 14} = {}) {
+  constructor({
+    stage,
+    paths = {},
+    probability = [],
+    color,
+    image,
+    speed = 0.003,
+    pointCount = 140,
+    pointSize = 18
+  } = {}) {
     super(stage);
 
     this.probability = probability;
