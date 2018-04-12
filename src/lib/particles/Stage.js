@@ -52,7 +52,6 @@ export default class Stage {
         leaderboard.scoredImages.push(imgModel);
         setTimeout(() => {
           const i = leaderboard.scoredImages.indexOf(imgModel);
-          console.log(`removing ${i}`, imgModel);
           leaderboard.scoredImages.splice(i, 1);
         }, 4000);
       }
@@ -89,7 +88,6 @@ export default class Stage {
   }
   _registerActor(actor) {
     log(`adding actor ${actor.name} to the stage`);
-    console.log(actor);
     this.actors.push(actor);
   }
   _unregisterActor(actor) {

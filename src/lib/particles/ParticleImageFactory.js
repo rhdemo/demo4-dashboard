@@ -8,8 +8,6 @@ export default class ParticleImageFactory {
     log("creating a particle image");
     const pi = new ParticleImage(stage, imagedata);
 
-    console.log(pi);
-
     return pi;
   }
 }

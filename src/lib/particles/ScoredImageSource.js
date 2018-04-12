@@ -41,8 +41,6 @@ export default class ScoredImageSource extends ImageSource {
         return;
       }
 
-      console.log(data);
-
       log(`received image: ${data.imageURL.slice(data.imageURL.length - 25)}`);
       const pixelator = new Pixelator();
       pixelator.init(data.image).then(p => {
