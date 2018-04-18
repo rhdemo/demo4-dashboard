@@ -29,8 +29,13 @@ body {
       top: 180px;
       left: 80px;
       z-index: 100;
-      animation: image-fall 2s ease-in 0s 1 normal forwards,
-                 image-fade 2s ease-in-out 0s 1 normal forwards;
+      animation: slide-image-down 2s ease-out 0s 1 normal forwards,
+                  slide-image-right 2s ease-in 0s 1 normal forwards,
+                  image-rotate-shrink 2s linear 0s 1 normal forwards,
+                  image-fade 2s linear 0s 1 normal forwards;
+      ;
+      // animation: image-fall 2s ease-in 0s 1 normal forwards;
+                 // image-fade 2s ease-in-out 0s 1 normal forwards;
   }
 
   &.training {
@@ -294,10 +299,31 @@ sup {
     }
 }
 
-@keyframes image-fall {
-    0% { top: 100px; left: 100px; transform: scale(1) rotate(0deg)} 
-    50% { top: 420px; left: 100px; transform: scale(1) rotate(0deg) } 
-    100% { top: 500px; left: 400px;transform: scale(0.2) rotate(26deg)} 
+@keyframes slide-image-down {
+    0% { top: 100px; } 
+    100% { top: 500px; } 
+}
+
+@keyframes slide-image-right {
+    0% { left: 100px; } 
+    100% { left: 400px;} 
+}
+
+@keyframes image-rotate-shrink {
+    0% {
+        left: 100px; 
+        transform: scale(1) rotate(0deg);
+        transform-origin: 50% 50%;
+    } 
+    50% { 
+        left: 100px;
+        transform: scale(1) rotate(0deg) 
+        transform-origin: 50% 50%;
+    } 
+    100% { left: 400px;
+        transform: scale(0.2) rotate(26deg)
+        transform-origin: 50% 50%;
+    } 
 }
 
 @keyframes image-fade {
