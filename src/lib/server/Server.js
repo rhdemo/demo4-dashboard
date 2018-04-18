@@ -82,7 +82,9 @@ server.route({
                   )}`
                 );
                 data.image = encodedImage;
-                ws.send(JSON.stringify(data));
+                if (ws.readyState === WebSocket.OPEN) {
+                  ws.send(JSON.stringify(data));
+                }
               });
             }
           });
