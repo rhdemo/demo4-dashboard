@@ -29,7 +29,7 @@
             <img class="scored-image" v-bind:src="image.src" />
           </div>
         </transition-group>
- 
+
         <div class="network">
           <img src="images/andres.jpg" class="secondary-image secondary-image-1">
           <img src="images/andres.jpg" class="secondary-image secondary-image-2">
@@ -58,8 +58,22 @@
 
     <section class="dashboard__section top">
       <h1>{{ currentPlayers }}
-        <small>active users</small>
+        <small>Total active users</small>
       </h1>
+
+      <div class="cloud-users">
+        <h2>{{ currentPlayers }}
+          <small>Private</small>
+        </h2>
+      
+        <h2>{{ currentPlayers }}
+          <small>Amazon</small>
+        </h2>
+
+        <h2>{{ currentPlayers }}
+          <small>Azure</small>
+        </h2>
+      </div>
 
       <div class="leaderboard">
         <h2 class="leaderboard__header">Top 10</h2>
@@ -71,18 +85,20 @@
             </div>
             <img src="images/andres.jpg" alt="Avatar of username" class="leaderboard__avatar">
             <span class="leaderboard__username">{{ leader.name }}</span>
-            <span class="leaderboard__score">{{ leader.score }} <small>points</small></span>
+            <span class="leaderboard__score">{{ leader.score }}
+              <small>points</small>
+            </span>
           </li>
-        </transition>
+          </transition>
       </div>
     </section>
   </div>
 
   <section id="path-tool">
-      <span>Path Tool</span>
-      <button id="start-path">Start</button>
-      <button id="end-path">End</button>
-      <textarea id="export-area"></textarea>
+    <span>Path Tool</span>
+    <button id="start-path">Start</button>
+    <button id="end-path">End</button>
+    <textarea id="export-area"></textarea>
   </section>
 
   <div class="parcel-preload">
