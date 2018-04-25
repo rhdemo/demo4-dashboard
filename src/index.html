@@ -10,19 +10,36 @@
 </head>
 
 <body>
+
   <div id="dashboard" class="dashboard">
+
+    <ul class="header">
+      <li>{{ pictureCount }}
+        <small>pictures</small>
+      </li>
+      <li>{{ pictureCount * 15 }}
+        <small>transactions</small>
+      </li>
+      <li>{{ totalPoints }}
+        <small>points</small>
+      </li>
+      <li>{{ currentPlayers }}
+        <small>All players</small>
+      </li>
+      <li>{{ currentPlayers }}
+        <small>Private Cloud</small>
+      </li>
+      <li>{{ currentPlayers }}
+        <small>Amazon Cloud</small>
+      </li>
+      <li>{{ currentPlayers }}
+        <small>Azure Cloud</small>
+      </li>
+    </ul>
+
     <section class="dashboard__section">
 
-      <div class="pictures">
-        <h1>{{ pictureCount }}
-          <small>pictures</small>
-        </h1>
-      </div>
-
       <div class="pipes">
-        <h1>{{ pictureCount * 15 }}
-          <small>transactions</small>
-        </h1>
 
         <transition-group name="scored-image-t" tag="div">
           <div v-for="image in scoredImages" v-bind:key="image.id">
@@ -47,43 +64,20 @@
 
       </div>
 
-      <div class="points">
-        <h1>{{ totalPoints }}
-          <small>points</small>
-        </h1>
-
-      </div>
     </section>
 
 
-    <section class="dashboard__section top">
-      <h1>{{ currentPlayers }}
-        <small>Total active users</small>
-      </h1>
-
-      <div class="cloud-users">
-        <h2>{{ currentPlayers }}
-          <small>Private</small>
-        </h2>
-      
-        <h2>{{ currentPlayers }}
-          <small>Amazon</small>
-        </h2>
-
-        <h2>{{ currentPlayers }}
-          <small>Azure</small>
-        </h2>
-      </div>
+    <section class="dashboard__section">
 
       <div class="leaderboard">
-        <h2 class="leaderboard__header">Top 10</h2>
+        <!-- <h2 class="leaderboard__header">Top 10</h2> -->
         <transition-group appear name="lbchange" tag="ol">
           <li v-for="(leader, index) in top10" v-bind:key="leader.playerId" class="leaderboard__item">
             <div class="leaderboard__position">
               {{ index + 1 }}
-              <sup>{{ ord[index] }}</sup>
+              <!-- <sup>{{ ord[index] }}</sup> -->
             </div>
-            <img src="images/andres.jpg" alt="Avatar of username" class="leaderboard__avatar">
+            <!-- <img src="images/andres.jpg" alt="Avatar of username" class="leaderboard__avatar"> -->
             <span class="leaderboard__username">{{ leader.name }}</span>
             <span class="leaderboard__score">{{ leader.score }}
               <small>points</small>
