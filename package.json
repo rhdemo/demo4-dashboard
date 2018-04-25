@@ -5,8 +5,7 @@
   "main": "Gulpfile.js",
   "scripts": {
     "server": "node src/lib/server/Server.js",
-    "serve":
-      "./node_modules/.bin/browser-sync start --server --serveStatic dist/ --files 'dist/**/*' --directory",
+    "serve": "./node_modules/.bin/browser-sync start --server --serveStatic dist/ --files 'dist/**/*' --directory",
     "parcel": "./node_modules/.bin/parcel watch --no-hmr src/index.html",
     "start": "npm run server & npm run parcel & npm run serve",
     "test": "echo \"Error: no test specified\" && exit 1"

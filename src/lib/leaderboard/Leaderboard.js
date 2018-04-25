@@ -11,7 +11,10 @@ const app = new Vue({
   data: {
     pictureCount: 0,
     totalPoints: 0,
-    currentPlayers: 0,
+    totalPlayers: 0,
+    privatePlayers: 0,
+    azurePlayers: 0,
+    amazonPlayers: 0,
     top10: [],
     ord: ["st", "nd", "rd", "th", "th", "th", "th", "th", "th", "th"],
     scoredImages: []
@@ -35,7 +38,10 @@ function update() {
     .then(rsp => rsp.json())
     .then(leaders => {
       app.top10 = take(leaders.top10, 10);
-      app.currentPlayers = leaders.currentPlayers;
+      app.totalPlayers = leaders.currentPlayers || 0;
+      app.azurePlayers = leaders.Azure || 0;
+      app.privatePlayers = leaders.Private || 0;
+      app.amazonPlayers = leaders.Amazon || 0;
     });
 }
 
