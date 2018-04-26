@@ -4,6 +4,7 @@ import ParticleImageFactory from "./ParticleImageFactory.js";
 import MovingParticleFactory from "./MovingParticleFactory.js";
 import TrainingSimulation from "./TrainingSimulation.js";
 import { makeLogger } from "../logging/Logger.js";
+import andres from "../../images/andres.jpg";
 
 const log = makeLogger("Stage");
 
@@ -40,10 +41,8 @@ export default class Stage {
   _initImageSource() {
     this._initScoredImageSource();
   }
-  _pushImage(src) {
+  _pushImage(src = andres) {
     this.imageCount++;
-
-    log(`scored image is on stage!`);
 
     if (window.leaderboard) {
       const imgModel = {
