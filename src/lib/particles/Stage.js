@@ -48,7 +48,11 @@ export default class Stage {
       this.imageCount++;
 
       if (window.leaderboard) {
-        const imgModel = { src: imgEl.src, id: this.imageCount };
+        const imgModel = {
+          src: imgEl.src,
+          id: this.imageCount,
+          swooshPath: Math.ceil(9 * Math.random())
+        };
         leaderboard.scoredImages.push(imgModel);
         setTimeout(() => {
           const i = leaderboard.scoredImages.indexOf(imgModel);

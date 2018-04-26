@@ -41,22 +41,11 @@
 
       <div class="pipes">
 
-        <transition-group name="scored-image-t" tag="div">
-          <div v-for="image in scoredImages" v-bind:key="image.id">
-            <img class="scored-image" v-bind:src="image.src" />
-          </div>
-        </transition-group>
-
         <div class="network">
-          <img src="images/andres.jpg" class="secondary-image secondary-image-1">
-          <img src="images/andres.jpg" class="secondary-image secondary-image-2">
-          <img src="images/andres.jpg" class="secondary-image secondary-image-3">
-          <img src="images/andres.jpg" class="secondary-image secondary-image-4">
-          <img src="images/andres.jpg" class="secondary-image secondary-image-5">
-          <img src="images/andres.jpg" class="secondary-image secondary-image-6">
-          <img src="images/andres.jpg" class="secondary-image secondary-image-7">
-          <img src="images/andres.jpg" class="secondary-image secondary-image-8">
-          <img src="images/andres.jpg" class="secondary-image secondary-image-9">
+
+          <div v-for="image in scoredImages" v-bind:key="image.id">
+            <img class="secondary-image secondary-image-{{ image.swooshPath }}" v-bind:src="image.src" />
+          </div>
 
           <img src="images/pipes-top.png" class="network--top">
           <img src="images/pipes-bottom.png" class="network--bottom">
