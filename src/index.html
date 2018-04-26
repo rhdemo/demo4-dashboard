@@ -10,6 +10,11 @@
 </head>
 
 <body>
+  <!-- 
+    this will ytrigger the strom
+    <body class="storm"> 
+  -->
+  <div class="lightning"></div>
 
   <div id="dashboard" class="dashboard">
 
@@ -23,16 +28,16 @@
       <li>{{ totalPoints }}
         <small>points</small>
       </li>
-      <li>{{ totalPlayers }}
+      <li>{{ totalPlayers }}223
         <small>All players</small>
       </li>
-      <li>{{ privatePlayers }}
+      <li>{{ privatePlayers }}123
         <small>Private Cloud</small>
       </li>
-      <li>{{ amazonPlayers }}
+      <li>{{ amazonPlayers }}33
         <small>Amazon Cloud</small>
       </li>
-      <li>{{ azurePlayers }}
+      <li>{{ azurePlayers }}22
         <small>Azure Cloud</small>
       </li>
     </ul>
@@ -43,7 +48,8 @@
 
         <div class="network">
 
-          <img v-for="image in scoredImages" v-bind:key="image.id" class="secondary-image" v-bind:class="image.swooshClass" v-bind:src="image.src" />
+          <img v-for="image in scoredImages" v-bind:key="image.id" class="secondary-image" v-bind:class="image.swooshClass" v-bind:src="image.src"
+          />
 
           <img src="images/pipes-top.png" class="network--top">
           <img src="images/pipes-bottom.png" class="network--bottom">

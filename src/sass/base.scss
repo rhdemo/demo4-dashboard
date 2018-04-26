@@ -625,3 +625,72 @@ body {
 .parcel-preload {
   display: none;
 }
+
+
+// STORM!!!
+body.storm {
+  position: relative;
+  filter: grayscale(.8);
+  transition: filter 1s ease;
+  .lightning {
+    visibility: visible;
+  }
+}
+
+.lightning {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  z-index: 1
+  ;
+  animation: lightning 2.5s ease infinite;
+}
+
+@keyframes lightning {
+  0% {
+    filter: opacity(1)
+  }
+  2% {
+    filter: opacity(0)
+  }
+  4% {
+    filter: opacity(1)
+  }
+  6% {
+    filter: opacity(0)
+  }
+  8% {
+    filter: opacity(1)
+  }
+  10% {
+    filter: opacity(0)
+  }
+  12% {
+    filter: opacity(1)
+  }
+  14% {
+    filter: opacity(0)
+  }
+  16% {
+    filter: opacity(1)
+  }
+  18% {
+    filter: opacity(0)
+  }
+  20% {
+    filter: opacity(1)
+  }
+  22% {
+    filter: opacity(0)
+  }
+  60% {
+    filter: opacity(0)
+  }
+  100% {
+    filter: opacity(1)
+  }
+}
