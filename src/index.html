@@ -43,9 +43,7 @@
 
         <div class="network">
 
-          <div v-for="image in scoredImages" v-bind:key="image.id">
-            <img class="secondary-image secondary-image-{{ image.swooshPath }}" v-bind:src="image.src" />
-          </div>
+          <img v-for="image in scoredImages" v-bind:key="image.id" class="secondary-image" v-bind:class="image.swooshClass" v-bind:src="image.src" />
 
           <img src="images/pipes-top.png" class="network--top">
           <img src="images/pipes-bottom.png" class="network--bottom">

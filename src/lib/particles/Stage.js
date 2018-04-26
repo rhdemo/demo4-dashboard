@@ -40,31 +40,28 @@ export default class Stage {
   _initImageSource() {
     this._initScoredImageSource();
   }
+  _pushImage(src) {
+    this.imageCount++;
+
+    log(`scored image is on stage!`);
+
+    if (window.leaderboard) {
+      const imgModel = {
+        src,
+        id: this.imageCount,
+        swooshClass: `secondary-image-${Math.ceil(9 * Math.random())}`
+      };
+      leaderboard.scoredImages.push(imgModel);
+      setTimeout(() => {
+        const i = leaderboard.scoredImages.indexOf(imgModel);
+        leaderboard.scoredImages.splice(i, 1);
+      }, 4000);
+    }
+  }
   _initScoredImageSource() {
     this.imageSource = new ScoredImageSource();
     this.imageSource.onImage((scoredImage, imgEl) => {
-      log(`scored image is on stage!`);
-
-      this.imageCount++;
-
-      if (window.leaderboard) {
-        const imgModel = {
-          src: imgEl.src,
-          id: this.imageCount,
-          swooshPath: Math.ceil(9 * Math.random())
-        };
-        leaderboard.scoredImages.push(imgModel);
-        setTimeout(() => {
-          const i = leaderboard.scoredImages.indexOf(imgModel);
-          leaderboard.scoredImages.splice(i, 1);
-        }, 4000);
-      }
-
-      // const particleImage = ParticleImageFactory.create(
-      //   this,
-      //   scoredImage.pixels
-      // );
-      // this._registerActor(particleImage);
+      this._pushImage(imgEl.src);
 
       const taskNames = {
         // adventure mode
