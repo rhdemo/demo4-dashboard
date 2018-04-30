@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { throttle } from "lodash";
 import ScoredImageSource from "./ScoredImageSource.js";
 import ParticleImageFactory from "./ParticleImageFactory.js";
 import MovingParticleFactory from "./MovingParticleFactory.js";
@@ -14,6 +15,11 @@ export default class Stage {
     this.actors = [];
     this.container = container;
     this.imageCount = 0;
+
+    this._initMovingParticles = throttle(
+      this._initMovingParticles.bind(this),
+      2000
+    );
 
     this._init();
 
