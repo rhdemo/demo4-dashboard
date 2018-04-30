@@ -39,3 +39,4 @@ To run the visualiation of machine learning training:
     stage.hideUI() // hides all UI elements
     stage.startTraining() // play the animation
 
+Recommend shutting down the server for this mode, so messages don't come through.
