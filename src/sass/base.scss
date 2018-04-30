@@ -86,7 +86,7 @@ body {
     mix-blend-mode: multiply;
 
     // background-size: 100% 100%;
- 
+
   }
 
   .scored-image {
@@ -98,11 +98,11 @@ body {
 
     // animation: image-fall 2s ease-in 0s 1 normal forwards;
     // image-fade 2s ease-in-out forwards 0s 1 normal forwards;
- 
+
   }
 
   &.training {
-    .pictures, .pipes h1, .points, .top, .leaderboard {
+    .header, .pictures, .pipes h1, .points, .top, .leaderboard {
       transition: 0.3s linear opacity;
       opacity: 0;
     }
