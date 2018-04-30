@@ -123,11 +123,11 @@ server.route({
           //     data.totalPoints = model.totalPoints;
           //     data.totalPictureCount = model.totalPictureCount;
 
-          //     console.log("sending fake data");
+          //     console.log("[Server] sending fake data");
 
           //     ws.send(JSON.stringify(data));
           //   }
-          // }, 2000);
+          // }, 1000);
         },
         disconnect: ({ ctx }) => {
           console.log(`[Server] client disconnected`);
