@@ -14,7 +14,7 @@ export default class MovingParticles extends Actor {
     probability = [],
     color,
     image,
-    speed = 0.003,
+    speed = 0.007,
     pointCount = 140,
     pointSize = 18
   } = {}) {
