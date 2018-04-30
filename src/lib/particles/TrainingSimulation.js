@@ -311,5 +311,9 @@ export default class TrainingSimulation {
     });
     stage._registerActor(mp);
     mp.onComplete(mp => stage._unregisterActor(mp));
+
+    return new Promise((resolve, reject) => {
+      mp.onComplete(resolve);
+    });
   }
 }

@@ -30,10 +30,13 @@ export default class Stage {
     document.body.classList.add("training");
   }
   startTraining() {
-    setTimeout(() => TrainingSimulation.start(this, 0), 0);
-    setTimeout(() => TrainingSimulation.start(this, 1), 7000);
-    setTimeout(() => TrainingSimulation.start(this, 2), 14000);
-    setTimeout(() => TrainingSimulation.start(this, 3), 21000);
+    TrainingSimulation.start(this, 0).then(() =>
+      TrainingSimulation.start(this, 1).then(() =>
+        TrainingSimulation.start(this, 2).then(() =>
+          TrainingSimulation.start(this, 3)
+        )
+      )
+    );
   }
   _init() {
     this._initScene();

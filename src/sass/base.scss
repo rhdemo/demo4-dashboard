@@ -102,6 +102,7 @@ body {
   }
 
   &.training {
+    background-image: url("../images/final-frontier.jpg");
     .header, .pictures, .pipes h1, .points, .top, .leaderboard {
       transition: 0.3s linear opacity;
       opacity: 0;
