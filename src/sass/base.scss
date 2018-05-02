@@ -240,6 +240,22 @@ body {
     z-index: 100;
   }
 
+  .tags {
+    position: absolute;
+    right: -16rem;
+    top: 4.8rem;
+    li {
+      margin-bottom: 3.1rem;
+      // background:rgba(0,0,0,.5);
+      background-image: linear-gradient(to right, transparent, rgba(0,0,0,.5));
+      height: 3.6rem;
+      line-height: 3.6rem;
+      padding: 0 2rem 0 15rem;
+      font-size: 1.8rem;
+      text-align: right;
+    }
+  }
+
   .secondary-image {
     height: 300px;
     width: auto;
@@ -247,7 +263,6 @@ body {
     box-shadow: 0 0 10rem rgba(0, 0, 0, 0.3);
     animation: secondary-image-one 1.5s ease-in-out forwards infinite;
     filter: opacity(0);
-    width: 500px;
   }
 
   .secondary-image-1 {
