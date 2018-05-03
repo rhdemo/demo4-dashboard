@@ -90,7 +90,7 @@ export default class Stage {
   _initMovingParticles(path = 0) {
     const mp = MovingParticleFactory.create(this, null, path);
     this._registerActor(mp);
-    mp.onComplete(mp => this._unregisterActor(mp));
+    mp.onComplete(this._unregisterActor.bind(this));
   }
   _registerActor(actor) {
     log(`adding actor ${actor.name} to the stage`);

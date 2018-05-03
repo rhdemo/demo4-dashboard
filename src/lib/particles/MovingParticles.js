@@ -22,6 +22,8 @@ export default class MovingParticles extends Actor {
 
     this.probability = probability;
 
+    this.completedCallbacks = [];
+
     this.paths = paths;
     this.color = color;
     this.image = image;
@@ -49,6 +51,7 @@ export default class MovingParticles extends Actor {
   destroy() {
     free(this.stage.scene, this.raycastPlane);
     free(this.stage.scene, this.points);
+    this.destroyed = true;
   }
 
   _updateMove() {}
@@ -66,15 +69,21 @@ export default class MovingParticles extends Actor {
   }
 
   _checkProgress() {
-    if (this.progress >= 1 + this.delaySpread && !this.loopParticles) {
+    if (
+      this.progress >= 1.1 + this.delaySpread &&
+      !this.loopParticles &&
+      !this.destroyed
+    ) {
       log(`moving particles is complete, destroying`);
       this.destroy();
-      this.completeHandler(this);
+      this.completedCallbacks.forEach(cb => cb(this));
     }
   }
 
   onComplete(cb) {
-    this.completeHandler = cb;
+    log(`installing onComplete handler`);
+    console.log("onComplete handler:", cb);
+    this.completedCallbacks.push(cb);
   }
 
   _initRaycasting() {

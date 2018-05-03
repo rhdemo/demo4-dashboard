@@ -42,7 +42,8 @@ function update() {
       app.azurePlayers = leaders.Azure || 0;
       app.privatePlayers = leaders.Private || 0;
       app.amazonPlayers = leaders.Amazon || 0;
-    });
+    })
+    .catch(err => {});
 }
 
 setInterval(update, 1000);
