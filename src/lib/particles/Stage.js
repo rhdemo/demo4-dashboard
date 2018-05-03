@@ -78,13 +78,10 @@ export default class Stage {
         "Find a horse": 2,
         "Find an apple": 3,
 
-        "Find a car": 4,
+        "Find a cell phone": 4,
         "Find a laptop": 5,
-        "Find an umbrella": 6,
-        "Find a person": 7,
-        "Find a bus": 4,
-        "Find a cell phone": 6,
-        "Find a giraffe": 7
+        "Find a clock": 6,
+        "Find a book": 7,
       };
 
       this._initMovingParticles(taskNames[scoredImage.taskName]);
