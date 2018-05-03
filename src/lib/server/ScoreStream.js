@@ -16,15 +16,15 @@ class ScoreStream extends ReconnectingWebSocket {
     });
 
     this.onerror = err =>
-      console.log(`[ScoreStream] Error: ${err.code}, ${err}`);
+      // console.log(`[ScoreStream] Error: ${err.code}, ${err}`);
 
-    this.addEventListener("open", () => {
-      console.log("[ScoreStream] connected");
+      this.addEventListener("open", () => {
+        console.log("[ScoreStream] connected");
 
-      if (keepalive) {
-        this.keepalive();
-      }
-    });
+        if (keepalive) {
+          this.keepalive();
+        }
+      });
 
     this.addEventListener("error", err => {
       console.log(`[ScoreStream] error: ${err}`);
