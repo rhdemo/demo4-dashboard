@@ -199,6 +199,7 @@ export default class MovingParticles extends Actor {
         paths: this._getPathsUniform()
       },
       transparent: true,
+      blending: THREE.AdditiveBlending,
       vertexShader,
       fragmentShader
     });
