@@ -304,9 +304,9 @@ export default class TrainingSimulation {
       paths,
       probability: distributions[i],
       color,
-      speed: 0.005,
-      pointCount: 1000,
-      pointSize: 20,
+      speed: 0.0035,
+      pointCount: 3000,
+      pointSize: 7,
       image: undefined
     });
     stage._registerActor(mp);
