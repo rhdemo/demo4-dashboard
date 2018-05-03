@@ -16,7 +16,7 @@ export default class MovingParticles extends Actor {
     image,
     speed = 0.007,
     pointCount = 140,
-    pointSize = 18
+    pointSize = 8
   } = {}) {
     super(stage);
 

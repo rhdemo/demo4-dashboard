@@ -1,6 +1,8 @@
 canvas {
     position: absolute;
     z-index: 20;
+    height: 100% !important;
+    width: 100% !important;
     // pointer-events: none;
     top: 0;
     left: 0;
