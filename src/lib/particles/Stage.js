@@ -18,7 +18,7 @@ export default class Stage {
 
     this._initMovingParticles = throttle(
       this._initMovingParticles.bind(this),
-      200
+      500
     );
 
     this._init();
