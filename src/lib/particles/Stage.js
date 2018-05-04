@@ -30,14 +30,21 @@ export default class Stage {
     document.body.classList.add("training");
   }
   startTraining() {
-    TrainingSimulation.start(this, 0).then(() =>
-      TrainingSimulation.start(this, 1).then(() =>
+    this.pushLotsOfImages();
+    TrainingSimulation.start(this, 0).then(() => {
+      this.pushLotsOfImages();
+      TrainingSimulation.start(this, 1).then(() => {
+        this.pushLotsOfImages();
         TrainingSimulation.start(this, 2).then(() => {
+          this.pushLotsOfImages();
           TrainingSimulation.start(this, 3);
           setTimeout(() => TrainingSimulation.start(this, 3, true), 5300);
-        })
-      )
-    );
+        });
+      });
+    });
+  }
+  pushLotsOfImages() {
+    for (let i = 0; i < 200; ++i) setTimeout(() => this._pushImage(), 25);
   }
   _init() {
     this._initScene();
