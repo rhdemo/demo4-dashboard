@@ -35,7 +35,7 @@ export default class Stage {
         TrainingSimulation.start(this, 2).then(() => {
           TrainingSimulation.start(this, 3);
           setTimeout(() => TrainingSimulation.start(this, 3, true), 5300);
-        });
+        })
       )
     );
   }

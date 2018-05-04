@@ -3,7 +3,6 @@ uniform float opacity;
 
 varying vec3 vColor;
 varying float vDiscard;
-varying vec2 vPathPos;
 varying float vOpacity;
 varying float vVariation;
 
@@ -14,8 +13,8 @@ void main() {
     }
 
     float r = 0.0;
-    float g = 0.8 + (sin(vPathPos.y/80.0)) / 5.0;
-    float b = 0.7 + (sin(vPathPos.x/80.0)) / 5.0;
+    float g = 0.8;
+    float b = 0.7;
 
     /* gl_FragColor = vec4( color, 1.0 ); */
     /* vec4 color = vec4(r, g, b, vOpacity - vVariation / 4.0); */

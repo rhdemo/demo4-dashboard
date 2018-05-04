@@ -26,6 +26,7 @@ export default class MovingParticles extends Actor {
     this.completedCallbacks = [];
 
     this.paths = paths;
+    this.paths.length = this.paths.nodes * this.paths.components;
     this.color = color;
     this.image = image;
 
@@ -55,7 +56,105 @@ export default class MovingParticles extends Actor {
     this.destroyed = true;
   }
 
-  _updateMove() {}
+  _updateMove() {
+    let x = 0;
+    let y = 0;
+    let p = 0;
+    let path_i = 0;
+    let pn = 0;
+    let pathProgress = 0;
+    let a = 0;
+    let aa = 0;
+    let x1i = 0;
+    let x2i = 0;
+    let y1i = 0;
+    let y2i = 0;
+    let pvar = 0;
+    let xvar = 0;
+    let yvar = 0;
+    let p1 = new Float32Array(2); // "vec2"
+    let p2 = new Float32Array(2); // "vec2"
+    let variation = 0;
+    let progress = 0;
+    let posArray = this.points.geometry.attributes.position.array;
+    let pathArray = this.points.geometry.attributes.path.array;
+    let variationArray = this.points.geometry.attributes.variation.array;
+    let progressArray = this.points.geometry.attributes.progress.array;
+
+    for (let i = 0, i3 = 0; i3 < posArray.length; i++, i3 += 3) {
+      variation = variationArray[i];
+      progress = progressArray[i];
+
+      p = Math.min(1, Math.max(0, progress)); // clamp to 0..1
+      pn = pathArray[i];
+
+      path_i = this.paths.length * pn;
+
+      // x = posArray[i3];
+      // y = posArray[i3 + 1];
+
+      pathProgress =
+        p *
+        (this.paths.nodes - this.paths.components + 1) *
+        this.paths.components;
+
+      x1i = path_i + Math.floor(pathProgress / 2.0) * 2;
+      y1i = x1i + 1;
+      x2i = x1i + this.paths.components;
+      y2i = x2i + 1;
+
+      aa = p * (this.paths.nodes - this.paths.components + 1);
+      a = aa - Math.trunc(aa); // get decimal part
+
+      pvar =
+        (progress + this.moveDelay.array[i] + variation) * variation * 10.0;
+      xvar = variation * this.spread * (Math.sin(pvar) + Math.cos(pvar));
+      yvar = variation * this.spread * (Math.cos(pvar) - Math.sin(pvar));
+
+      p1[0] = this.paths.coordinates[x1i] + xvar;
+      p1[1] = this.paths.coordinates[y1i] + yvar;
+      p2[0] = this.paths.coordinates[x2i] + xvar;
+      p2[1] = this.paths.coordinates[y2i] + yvar;
+
+      posArray[i3] = (1 - a) * p1[0] + a * p2[0];
+      posArray[i3 + 1] = (1 - a) * p1[1] + a * p2[1];
+    }
+
+    this.points.geometry.attributes.position.needsUpdate = true;
+
+    // vec2 pointOnPath(float p, int pn, bool hideStationary) {
+    //   p = clamp(p, 0.0, 1.0);
+
+    //   int path_i = PATH_LENGTH * pn;
+    //   float path_progress = p * float((PATH_NODES - PATH_COMPONENTS + 1) * PATH_COMPONENTS);
+    //   int x1i = path_i + int(path_progress / 2.0) * 2;
+    //   int y1i = x1i + 1;
+    //   int x2i = x1i + PATH_COMPONENTS;
+    //   int y2i = x2i + 1;
+
+    //   float a = fract(p * float((PATH_NODES - PATH_COMPONENTS + 1)));
+
+    //   // vary the positions per particle to spread them out out
+    //   float pvar = (progress + moveDelay + variation) * variation * 10.0;
+    //   float xvar = variation * SPREAD * (sin(pvar) + cos(pvar));
+    //   float yvar = variation * SPREAD * (cos(pvar) - sin(pvar));
+
+    //   vec2 p1 = vec2(paths[x1i] + xvar, paths[y1i] + yvar);
+    //   vec2 p2 = vec2(paths[x2i] + xvar, paths[y2i] + yvar);
+
+    //   // if the particle isn't moving, this means that it has reached the end of
+    //   // its path, but it was on a path that has padding end points.  we don't
+    //   // want those particles to stay visible just sitting there, so let our
+    //   // friend the fragment shader know to discard this particle with
+    //   if (hideStationary && p1 == p2) {
+    //     return vec2(DISCARD_THIS, 0.0);
+    //   }
+
+    //   vec2 pos = mix( p1, p2, a );
+
+    //   return pos;
+    // }
+  }
 
   _updateProgress() {
     const progressAttr = this.geometry.attributes.progress;
