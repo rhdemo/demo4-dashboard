@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Red Hat Summit 2018 Keynote image approval</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+
+    <div id="approve-app">
+      <div class="wrapper">
+        <div v-for="(image, i) in scoredImages" class="box">
+          <div v-if="image">
+            <img v-bind:src="image.image" alt="image to be scored">
+            <button id="yes" v-bind:data-index="i" v-on:click="approve" class="btn btn-yes"></button>
+            <button id="no" v-bind:data-index="i" v-on:click="reject" class="btn btn-no"></button>
+          </div>
+          <div v-else>
+            <img src="placeholder.jpg" alt="placeholder">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="approve.js"></script>
+
+  </body>
+</html>

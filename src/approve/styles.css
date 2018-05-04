@@ -1,0 +1,56 @@
+body {
+  margin: 40px;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  background-color: #fff;
+  color: #444;
+}
+
+.box {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 50%;
+  border-width: 4px;
+  border-style: solid;
+  border-color: green;
+  mix-blend-mode: multiply;
+}
+.btn-yes {
+  border-right: none;
+}
+.btn-yes:hover {
+  background-color: green;
+  cursor: pointer;
+}
+.btn-no {
+  right: 0;
+  left: auto;
+  border-left: 0;
+  border-color: red;
+}
+.btn-no:hover {
+  background-color: red;
+  cursor: not-allowed;
+}
+
+img {
+  /* width: 300px; */
+  /* height: auto; */
+  display: inline-block;
+  object-fit: cover;
+  object-position: center center;
+}
+
+

@@ -7,6 +7,7 @@
     "server": "nodemon src/lib/server/Server.js",
     "serve": "./node_modules/.bin/browser-sync start --server --serveStatic dist/ --files 'dist/**/*' --directory",
     "parcel": "./node_modules/.bin/parcel watch --no-hmr src/index.html",
+    "parcel-approve": "./node_modules/.bin/parcel watch --no-hmr src/approve/index.html -d dist/approve/",
     "start": "npm run server & npm run parcel & npm run serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -28,6 +29,8 @@
     "html5-websocket": "^2.0.2",
     "http-proxy": "^1.16.2",
     "lodash": "^4.17.5",
+    "nanoid": "^1.0.2",
+    "nes": "^8.1.0",
     "node-fetch": "^2.1.1",
     "reconnecting-websocket": "^3.2.2",
     "three": "^0.91.0",

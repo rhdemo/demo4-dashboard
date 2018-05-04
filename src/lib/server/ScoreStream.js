@@ -4,7 +4,7 @@ const ReconnectingWebSocket = require("reconnecting-websocket");
 const KEEPALIVE_INTERVAL = 5 * 1000;
 
 class ScoreStream extends ReconnectingWebSocket {
-  constructor(url, keepalive = false) {
+  constructor({ url, keepalive = false } = {}) {
     super(url, undefined, {
       constructor: Html5Websocket,
       maxReconnectionDelay: 10000,
@@ -16,15 +16,15 @@ class ScoreStream extends ReconnectingWebSocket {
     });
 
     this.onerror = err =>
-      // console.log(`[ScoreStream] Error: ${err.code}, ${err}`);
+      console.log(`[ScoreStream] Error: ${err.code}, ${err}`);
 
-      this.addEventListener("open", () => {
-        console.log("[ScoreStream] connected");
+    this.addEventListener("open", () => {
+      console.log(`[ScoreStream] connected to ${url}`);
 
-        if (keepalive) {
-          this.keepalive();
-        }
-      });
+      if (keepalive) {
+        this.keepalive();
+      }
+    });
 
     this.addEventListener("error", err => {
       console.log(`[ScoreStream] error: ${err}`);

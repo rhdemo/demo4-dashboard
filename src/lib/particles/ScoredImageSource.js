@@ -18,11 +18,11 @@ export default class ScoredImageSource extends ImageSource {
       serviceUrl =
         "ws://demo4-dashboard-service-demo4-dashboard.apps.summit-aws.sysdeseng.com/images";
     } else if (location.hostname.includes("localhost")) {
-      serviceUrl = "ws://localhost:1234/images";
+      serviceUrl = "ws://localhost:1234/images/approved";
     } else {
-      serviceUrl = `ws://${location.hostname}:1234/images`;
+      serviceUrl = `ws://${location.hostname}:1234/images/approved`;
     }
-    this.scoreStream = new ScoreStream(serviceUrl);
+    this.scoreStream = new ScoreStream({ url: serviceUrl });
     this.scoreStream.addEventListener("open", () =>
       console.log("[ScoredImageSource] stream open")
     );
