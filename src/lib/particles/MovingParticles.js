@@ -134,7 +134,7 @@ export default class MovingParticles extends Actor {
       (v, i) => i % 2 === 0
     );
 
-    this.material.uniforms.xStart.value = min(xValues) + 3;
+    this.material.uniforms.xStart.value = -350; //min(xValues) + 3;
     this.material.uniforms.xEnd.value = max(xValues) - 16;
   }
 
