@@ -5,7 +5,7 @@ import { makeLogger } from "../logging/Logger";
 const log = makeLogger("TrainingSimulation");
 
 export default class TrainingSimulation {
-  static start(stage, i) {
+  static start(stage, i, loopParticles = false) {
     log("creating a moving particle object");
 
     // coordinates are: [ x1, y1, x2, y2, x3, y3, ..., xN, yN ]
@@ -294,9 +294,27 @@ export default class TrainingSimulation {
 
     const distributions = [
       [1 / 8, 1 / 8, 1 / 8, 1 / 8, 1 / 8, 1 / 8, 1 / 8, 1 / 8],
-      [2 / 16, 2 / 16, 0 / 16, 4 / 16, 4 / 16, 0 / 16, 2 / 16, 2 / 16],
-      [0 / 16, 1 / 16, 0 / 16, 5 / 16, 9 / 16, 0 / 16, 0 / 16, 1 / 16],
-      [0 / 16, 0 / 16, 0 / 16, 0 / 16, 16 / 16, 0 / 16, 0 / 16, 0 / 16]
+      [1.9 / 16, 2 / 16, 0.1 / 16, 4 / 16, 4 / 16, 0.1 / 16, 2 / 16, 1.9 / 16],
+      [
+        0.1 / 16,
+        1 / 16,
+        0.1 / 16,
+        5 / 15.6,
+        9 / 16,
+        0.1 / 16,
+        0.1 / 16,
+        1 / 16
+      ],
+      [
+        0.1 / 16,
+        0.1 / 16,
+        0.1 / 16,
+        0.1 / 16,
+        15.3 / 16,
+        0.1 / 16,
+        0.1 / 16,
+        0.1 / 16
+      ]
     ];
 
     const mp = new MovingParticles({
@@ -307,7 +325,8 @@ export default class TrainingSimulation {
       speed: 0.0035,
       pointCount: 3000,
       pointSize: 7,
-      image: undefined
+      image: undefined,
+      loopParticles
     });
     stage._registerActor(mp);
     mp.onComplete(mp => stage._unregisterActor(mp));

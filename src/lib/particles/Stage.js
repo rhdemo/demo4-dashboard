@@ -32,9 +32,10 @@ export default class Stage {
   startTraining() {
     TrainingSimulation.start(this, 0).then(() =>
       TrainingSimulation.start(this, 1).then(() =>
-        TrainingSimulation.start(this, 2).then(() =>
-          TrainingSimulation.start(this, 3)
-        )
+        TrainingSimulation.start(this, 2).then(() => {
+          TrainingSimulation.start(this, 3);
+          setTimeout(() => TrainingSimulation.start(this, 3, true), 5300);
+        });
       )
     );
   }
@@ -81,7 +82,7 @@ export default class Stage {
         "Find a cell phone": 4,
         "Find a laptop": 5,
         "Find a clock": 6,
-        "Find a book": 7,
+        "Find a book": 7
       };
 
       this._initMovingParticles(taskNames[scoredImage.taskName]);

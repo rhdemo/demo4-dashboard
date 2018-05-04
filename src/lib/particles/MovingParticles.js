@@ -16,7 +16,8 @@ export default class MovingParticles extends Actor {
     image,
     speed = 0.007,
     pointCount = 140,
-    pointSize = 8
+    pointSize = 8,
+    loopParticles = false
   } = {}) {
     super(stage);
 
@@ -33,7 +34,7 @@ export default class MovingParticles extends Actor {
     this.delaySpread = 1.0;
     this.size = pointSize;
     this.spread = 2;
-    this.loopParticles = false;
+    this.loopParticles = loopParticles;
     this.progress = 0;
 
     log("created");
