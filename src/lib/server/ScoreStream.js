@@ -1,5 +1,6 @@
 const Html5Websocket = require("html5-websocket");
 const ReconnectingWebSocket = require("reconnecting-websocket");
+const nanoid = require("nanoid");
 
 const KEEPALIVE_INTERVAL = 5 * 1000;
 
@@ -24,6 +25,21 @@ class ScoreStream extends ReconnectingWebSocket {
       if (keepalive) {
         this.keepalive();
       }
+    });
+
+    // add an id to the message
+    this.addEventListener("message", msg => {
+      let data;
+      try {
+        data = JSON.parse(msg.data);
+      } catch (e) {
+        console.error(
+          `[Server] error occurred while JSON decoding: ${msg.data}`
+        );
+        return;
+      }
+      data.id = nanoid();
+      msg.data = JSON.stringify(data);
     });
 
     this.addEventListener("error", err => {

@@ -5,6 +5,17 @@ import ScoreStream from "../lib/server/ScoreStream.js";
 
 const log = makeLogger("Approve");
 
+// infer the correct host to connect to based on current hostname
+let serverHost;
+if (location.hostname.includes(".com")) {
+  serverHost =
+    "demo4-dashboard-service-demo4-dashboard.apps.summit-aws.sysdeseng.com";
+} else if (location.hostname.includes("localhost")) {
+  serverHost = "localhost:1234";
+} else {
+  serverHost = `${location.hostname}:1234`;
+}
+
 const app = new Vue({
   el: "#approve-app",
   data: {
@@ -15,14 +26,16 @@ const app = new Vue({
       const i = event.target.dataset.index;
       log(`approve ${i}`);
       this.removeImage(i);
+      console.log(`${serverHost}/images/approve/${this.scoredImages[i].id}`);
     },
     reject: function(event) {
       const i = event.target.dataset.index;
       log(`reject ${i}`);
       this.removeImage(i);
+      console.log(`${serverHost}/images/reject/${this.scoredImages[i].id}`);
     },
     removeImage: function(i) {
-      this.scoredImages.splice(i, 1, undefined);
+      this.scoredImages.splice(i, 1);
     }
   }
 });
@@ -30,18 +43,7 @@ const app = new Vue({
 // it's hacky time
 window.app = app;
 
-// infer the correct host to connect to based on current hostname
-let serviceUrl;
-if (location.hostname.includes(".com")) {
-  serviceUrl =
-    "ws://demo4-dashboard-service-demo4-dashboard.apps.summit-aws.sysdeseng.com/images/all";
-} else if (location.hostname.includes("localhost")) {
-  serviceUrl = "ws://localhost:1234/images/all";
-} else {
-  serviceUrl = `ws://${location.hostname}:1234/images/all`;
-}
-
-const scoreStream = new ScoreStream({ url: serviceUrl });
+const scoreStream = new ScoreStream({ url: `ws://${serverHost}/images/all` });
 
 scoreStream.addEventListener("open", () => log("stream open"));
 scoreStream.addEventListener("message", msg => {
@@ -62,20 +64,7 @@ scoreStream.addEventListener("message", msg => {
   log(`received image: ${data.imageURL.slice(data.imageURL.length - 25)}`);
 
   // if there are empty spaces in the pending image array, inject there, otherwise push onto the end
-  let emptySlot = -1;
-  for (let i = 0; i < app.scoredImages.length; ++i) {
-    if (typeof app.scoredImages[i] === "undefined") {
-      emptySlot = i;
-      break;
-    }
-  }
-  if (emptySlot !== -1) {
-    log(`inserting image into empty slot: ${emptySlot}`);
-    app.scoredImages.splice(emptySlot, 1, data);
-  } else {
-    log(`no empty slots, appending image to end`);
-    app.scoredImages.push(data);
-  }
+  app.scoredImages.push(data);
 
   // const pixelator = new Pixelator();
   // pixelator.init(data.image).then(p => {
