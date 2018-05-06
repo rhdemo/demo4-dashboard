@@ -6,7 +6,7 @@ body {
 .wrapper {
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, 400px);
   background-color: #fff;
   color: #444;
 }
@@ -46,11 +46,9 @@ body {
 }
 
 img {
-  /* width: 300px; */
-  /* height: auto; */
+  width: 400px;
+  height: 400px;
   display: inline-block;
-  object-fit: cover;
-  object-position: center center;
 }
 
 
