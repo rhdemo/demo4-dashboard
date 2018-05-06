@@ -91,15 +91,15 @@ export default class Stage {
 
       const taskNames = {
         // adventure mode
-        "Find Burr": 0,
-        "Find a teddy bear": 1,
-        "Find a horse": 2,
-        "Find an apple": 3,
+        "Burr": 0,
+        "a teddy bear": 1,
+        "a horse": 2,
+        "an apple": 3,
 
-        "Find a cell phone": 4,
-        "Find a laptop": 5,
-        "Find a clock": 6,
-        "Find a book": 7
+        "a cell phone": 4,
+        "a laptop": 5,
+        "a clock": 6,
+        "a book": 7
       };
 
       this._initMovingParticles(taskNames[scoredImage.taskName]);

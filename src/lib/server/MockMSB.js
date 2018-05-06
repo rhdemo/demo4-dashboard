@@ -31,18 +31,18 @@ server.route({
           setInterval(() => {
             if (ws.readyState === WebSocket.OPEN) {
               const taskNames = [
-                "Find Burr",
-                "Find a teddy bear",
-                "Find a horse",
-                "Find an apple",
+                "Burr",
+                "a teddy bear",
+                "a horse",
+                "an apple",
 
-                "Find a car",
-                "Find a laptop",
-                "Find an umbrella",
-                "Find a person",
-                "Find a bus",
-                "Find a cell phone",
-                "Find a giraffe"
+                "a car",
+                "a laptop",
+                "an umbrella",
+                "a person",
+                "a bus",
+                "a cell phone",
+                "a giraffe"
               ];
 
               const data = {
