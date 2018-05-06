@@ -29,17 +29,19 @@ class ScoreStream extends ReconnectingWebSocket {
 
     // add an id to the message
     this.addEventListener("message", msg => {
-      let data;
-      try {
-        data = JSON.parse(msg.data);
-      } catch (e) {
-        console.error(
-          `[Server] error occurred while JSON decoding: ${msg.data}`
-        );
-        return;
+      if (msg.data) {
+        let data;
+        try {
+          data = JSON.parse(msg.data);
+        } catch (e) {
+          console.error(
+            `[Server] error occurred while JSON decoding: ${msg.data}`
+          );
+          return;
+        }
+        data.id = nanoid();
+        msg.data = JSON.stringify(data);
       }
-      data.id = nanoid();
-      msg.data = JSON.stringify(data);
     });
 
     this.addEventListener("error", err => {

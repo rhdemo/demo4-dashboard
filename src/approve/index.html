@@ -12,7 +12,7 @@
       <div class="wrapper">
         <div v-for="(image, i) in scoredImages" class="box">
           <div v-if="image">
-            <img v-bind:src="image.image" alt="image to be scored">
+            <img v-bind:src="image.image" v-bind:alt="image.imageURL">
             <button id="yes" v-bind:data-index="i" v-on:click="approve" class="btn btn-yes"></button>
             <button id="no" v-bind:data-index="i" v-on:click="reject" class="btn btn-no"></button>
           </div>

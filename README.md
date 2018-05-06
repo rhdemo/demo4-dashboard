@@ -16,6 +16,12 @@ For the demo2 dashboard (forked from this one), see [rhdemo/demo2-dashboard](htt
  3. graph svg can be replaced with the pipes when ready!  woot!
  4. the build uses Parcel, which imports SCSS files from a javascript entry point.  I know, it's weird, but it works well enough for a small project like this.  let mclayton know if any problems arise
 
+### Using a fake Microservice B
+
+There's a fake microservice B bundled with demo4-dashboard.  To launch using it, prepend `NODE_ENV=test` to the `npm start` command like so:
+
+    NODE_ENV=test npm start
+
 ## Manual steps for demo pieces
 
 Here are some commands to run in the JS console to manually trigger actions needed by certain demo pieces.

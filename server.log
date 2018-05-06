@@ -1,0 +1,97 @@
+
+> Dashboard@1.0.0 server /home/mclayton/projects/demo4-dashboard
+> nodemon src/lib/server/Server.js
+
+[33m[nodemon] 1.17.3[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `node src/lib/server/Server.js`[39m
+Server running at: http://t450s:1234
+[ScoreStream] connected to ws://localhost:1235/dashboard
+[Server] received image Y73KhSDNa6MNYhfll~oCH
+[Server] client connected.  all clients:  [ '7zSnXuPHtW1KwIZdryEJ5' ]
+[Server] received image 1V4_6Js0vYorqlp6~4xnY
+[Server] received image wjfLLRS1KwdNvoOh8cweb
+[Server] received image 58RZs1pZqniOBoiUchGco
+[Server] received image nPsPFgbrrzKa~1m1Ko6lV
+[Server] received image u5hQfE_KCNrXqfkVOdZiK
+[Server] received image 0LuaTKgThLVfFBF8Ww7Tv
+[Server] received image QMCq13KmU9vedyo1AFrBu
+[Server] received image 8K2VjrGKW5OiQcVcSeHpg
+[Server] received image 0clQM57f7pgKObAotxm5F
+[Server] received image 7tfvI~qa2zDnJWPD6azJl
+[Server] client disconnected.  all clients:  []
+[Server] client connected.  all clients:  [ 'QRzoXX5_g1u4e4CMSsGbQ' ]
+[Server] received image 30q07BUbJmwpsTnvPDsgX
+[Server] received image ru8~5B9PSCk5DZ0z_Nytv
+[Server] received image DUoJQD0P1svzaQM6Q03yF
+[Server] received image _zGpAXJZa0leoVwFg20kq
+[Server] received image ccQbJ32v1Uk7zBae_oxbZ
+[Server] received image BA0jKchmnyTIxaQuV6jim
+[Server] received image 0zgrkuWVXHmVsMO_2~hVw
+[Server] received image LvxnuRA1EsOD7Wo6aGe5M
+[Server] received image C6sr9m9dXSnJ4SSyYM0kJ
+[Server] received image x3j3cOH4iZQKgZ1r0ZK_n
+[Server] received image u9u9vfMUullH~sSaOYOFU
+[Server] received image 7Uo4ahrmdo4FvDu_otjKG
+[Server] received image k2z2O2Zk6x5gxSKPgh_9Y
+[Server] received approval of qp22xZkZ5MC5R6HhbuXcH
+[PendingQueue] approving qp22xZkZ5MC5R6HhbuXcH
+[Server] received image plb5DpJqnLYX7~KhyVfks
+[Server] received image MVCj8x3eixgcY5mdJk4xY
+[Server] received image j8btnhf2OOkVCb2t~ZT2l
+[Server] received approval of 9j3NJxKtU0MZ8l7UXvuGK
+[PendingQueue] approving 9j3NJxKtU0MZ8l7UXvuGK
+[Server] received approval of pJ2kwsedpySOoWk7ac16W
+[PendingQueue] approving pJ2kwsedpySOoWk7ac16W
+[Server] received image nmSwkWtUlNRBNtBp3Pl2e
+[Server] received approval of k80aiiX1EH5oV_fOCQ9ns
+[PendingQueue] approving k80aiiX1EH5oV_fOCQ9ns
+[Server] received approval of 4LtAQ7rJk5t3Uia2krPEw
+[PendingQueue] approving 4LtAQ7rJk5t3Uia2krPEw
+[Server] received approval of RyayQsgSkOWQbq_UsOtLm
+[PendingQueue] approving RyayQsgSkOWQbq_UsOtLm
+[Server] received approval of fPSerfdqeuh2iQBzM~xZo
+[PendingQueue] approving fPSerfdqeuh2iQBzM~xZo
+[Server] received approval of 71Ujugv2MpbidTtfiHYtp
+[PendingQueue] approving 71Ujugv2MpbidTtfiHYtp
+[Server] received approval of 0NzRBDY5Ef2yOVzxCthFK
+[PendingQueue] approving 0NzRBDY5Ef2yOVzxCthFK
+[Server] received image moDd25Fv2AWT9oCBEA8er
+[Server] received approval of r67kBA6viD7XoU7Kr~Yt5
+[PendingQueue] approving r67kBA6viD7XoU7Kr~Yt5
+[Server] received approval of GldLIvvxv3lwpiOyRdDiz
+[PendingQueue] approving GldLIvvxv3lwpiOyRdDiz
+[Server] received approval of KLFIKr2weGGU_IsU90pvD
+[PendingQueue] approving KLFIKr2weGGU_IsU90pvD
+[Server] received approval of p9CBzgCmiqnitUMFmjMHB
+[PendingQueue] approving p9CBzgCmiqnitUMFmjMHB
+[Server] received approval of T481~1WoR4DpVZqe_zgGf
+[PendingQueue] approving T481~1WoR4DpVZqe_zgGf
+[Server] received image 7vHjrUASZ4V81z4mv6ocQ
+[Server] received approval of wrg14CdYeWqcOhGNMqJG3
+[PendingQueue] approving wrg14CdYeWqcOhGNMqJG3
+[Server] received approval of MXt2dzBh1sN6O4bjTok2u
+[PendingQueue] approving MXt2dzBh1sN6O4bjTok2u
+[Server] received approval of GTVhEcERj33lNyOe1Z4D5
+[PendingQueue] approving GTVhEcERj33lNyOe1Z4D5
+[Server] received image Z5wMtC5AOYpQT1vWsvjXQ
+[Server] received rejection of JUm2MypRtprVjDKTjXjtK
+[PendingQueue] reject JUm2MypRtprVjDKTjXjtK
+[Server] received image cA9dJfBwn6S7WL~XQZxoD
+[Server] received rejection of 15zuHdn_LpFLQtojyOV80
+[PendingQueue] reject 15zuHdn_LpFLQtojyOV80
+[Server] received rejection of l63rhThNrWDFXFwp8lb4Y
+[PendingQueue] reject l63rhThNrWDFXFwp8lb4Y
+[Server] received rejection of QPYpPQLrEAxk3PaupZ1JE
+[PendingQueue] reject QPYpPQLrEAxk3PaupZ1JE
+[Server] received image ExAX6r8AjPMfNzuHQD7xl
+[Server] received rejection of mkMrPZxV86OVWr_WPoLQf
+[PendingQueue] reject mkMrPZxV86OVWr_WPoLQf
+[Server] received image JQO37fCzZPxDuOtg0LNII
+[Server] received rejection of i1rLdq3e6mKgUY3UROl8I
+[PendingQueue] reject i1rLdq3e6mKgUY3UROl8I
+[Server] received image zX7awdgqIqbxo1AX~tcdw
+[Server] received image dRk9_zOg4Uf2PQ~eG~c4j
+[Server] received image ck81Iwlto1UY6BTZ1pBoO
+[ScoreStream] closed

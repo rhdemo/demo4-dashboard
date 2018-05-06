@@ -43,6 +43,16 @@ export default class Stage {
       });
     });
   }
+  startStorm() {
+    document.body.classList.add("storm");
+  }
+  stopStorm() {
+    document.body.classList.remove("storm");
+  }
+  startDemoMode() {
+    setInterval(() => this._pushImage(), 40);
+    setInterval(() => this._initMovingParticles(), 500);
+  }
   pushLotsOfImages() {
     for (let i = 0; i < 200; ++i) setTimeout(() => this._pushImage(), 25);
   }
