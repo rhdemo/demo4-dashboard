@@ -48,7 +48,8 @@ server.route({
   method: "GET",
   path: "/images/approve/{id}",
   handler: (request, h) => {
-    console.log(`[Server] received approval of ${id}`);
+    console.log(`[Server] received approval of ${request.params.id}`);
+    return "approved";
   }
 });
 
@@ -56,7 +57,8 @@ server.route({
   method: "GET",
   path: "/images/reject/{id}",
   handler: (request, h) => {
-    console.log(`[Server] received rejection of ${id}`);
+    console.log(`[Server] received rejection of ${request.params.id}`);
+    return "rejected";
   }
 });
 

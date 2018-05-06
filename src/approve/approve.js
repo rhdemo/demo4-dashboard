@@ -24,15 +24,17 @@ const app = new Vue({
   methods: {
     approve: function(event) {
       const i = event.target.dataset.index;
+      const id = this.scoredImages[i].id;
       log(`approve ${i}`);
+      fetch(`http://${serverHost}/images/approve/${id}`);
       this.removeImage(i);
-      console.log(`${serverHost}/images/approve/${this.scoredImages[i].id}`);
     },
     reject: function(event) {
       const i = event.target.dataset.index;
+      const id = this.scoredImages[i].id;
       log(`reject ${i}`);
+      fetch(`http://${serverHost}/images/reject/${id}`);
       this.removeImage(i);
-      console.log(`${serverHost}/images/reject/${this.scoredImages[i].id}`);
     },
     removeImage: function(i) {
       this.scoredImages.splice(i, 1);
