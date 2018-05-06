@@ -31,7 +31,7 @@ server.route({
           setInterval(() => {
             if (ws.readyState === WebSocket.OPEN) {
               const taskNames = [
-                "Burr",
+                "a person",
                 "a teddy bear",
                 "a horse",
                 "an apple",

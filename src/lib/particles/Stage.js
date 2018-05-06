@@ -91,7 +91,7 @@ export default class Stage {
 
       const taskNames = {
         // adventure mode
-        "Burr": 0,
+        "a person": 0,
         "a teddy bear": 1,
         "a horse": 2,
         "an apple": 3,
