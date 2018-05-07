@@ -21,6 +21,9 @@ const app = new Vue({
   }
 });
 
+let isStorming = false;
+let hasStormed = false;
+
 // it's hacky time
 window.leaderboard = app;
 
@@ -37,11 +40,19 @@ function update() {
   fetch(serviceUrl)
     .then(rsp => rsp.json())
     .then(leaders => {
+      if (document.body.classList.contains('storm')) {
+        isStorming = true;
+      }
+
+      if (!document.body.classList.contains('storm') && isStorming) {
+        hasStormed = true;
+      }
+
       app.top10 = take(leaders.top10, 10);
       app.totalPlayers = leaders.currentPlayers || 0;
       app.azurePlayers = leaders.Azure || 0;
       app.privatePlayers = leaders.Private || 0;
-      app.amazonPlayers = leaders.Amazon || 0;
+      app.amazonPlayers = (!hasStormed) ? leaders.Amazon || 0 : 0;
     })
     .catch(err => {});
 }
