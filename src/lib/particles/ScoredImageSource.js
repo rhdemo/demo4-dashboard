@@ -16,7 +16,7 @@ export default class ScoredImageSource extends ImageSource {
     let serviceUrl;
     if (location.hostname.includes(".com")) {
       serviceUrl =
-        "ws://demo4-dashboard-service-demo4-dashboard.apps.summit-aws.sysdeseng.com/images";
+        "ws://demo4-dashboard-service-demo4-dashboard.apps.summit-aws.sysdeseng.com/images/approved";
     } else if (location.hostname.includes("localhost")) {
       serviceUrl = "ws://localhost:1234/images/approved";
     } else {
