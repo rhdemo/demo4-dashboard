@@ -514,7 +514,7 @@ export default class TrainingSimulation {
       paths,
       probability: distributions[i],
       color,
-      speed: 0.0035,
+      speed: 0.0045,
       pointCount: 3000,
       pointSize: 7,
       image: undefined,
