@@ -179,7 +179,7 @@ body {
     font-weight: 400;
     flex:  0 0 14%;
     &:nth-of-type(2) {
-      flex-basis: 16%;      
+      flex-basis: 16%;
     }
     small {
       font-size: 2.5rem;
@@ -713,8 +713,6 @@ body.storm {
 }
 
 .lightning {
-  opacity: 0;
-  display: none;
   visibility: hidden;
   position: absolute;
   top: 0;
@@ -871,7 +869,7 @@ body.storm {
   }
 
   2% {
-    opacity: 0;
+    filter: opacity(0);
   }
 
   4% {
@@ -879,7 +877,7 @@ body.storm {
   }
 
   6% {
-    opacity: 0;
+    filter: opacity(0);
   }
 
   8% {
@@ -887,7 +885,7 @@ body.storm {
   }
 
   10% {
-    opacity: 0;
+    filter: opacity(0);
   }
 
   12% {
@@ -895,7 +893,7 @@ body.storm {
   }
 
   14% {
-    opacity: 0;
+    filter: opacity(0);
   }
 
   16% {
@@ -903,23 +901,15 @@ body.storm {
   }
 
   18% {
-    opacity: 0;
+    filter: opacity(0);
   }
 
   20% {
-    opacity: 1;
+    filter: opacity(1);
   }
 
-  // 22% {
-    opacity: 0;
-  // }
-
-  // 60% {
-    opacity: 0;
-  // }
-
   100% {
-    opacity: 0;
+    filter: opacity(0);
   }
 }
 
