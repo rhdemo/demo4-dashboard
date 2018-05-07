@@ -75,6 +75,35 @@ server.route({
 });
 
 server.route({
+  method: "GET",
+  path: "/storm/{action}",
+  handler: (request, h) => {
+    let storm;
+    switch (request.params.action) {
+      case "start":
+        storm = true;
+        break;
+      case "stop":
+        storm = false;
+        break;
+      default:
+        return { message: "incorrect storm action" };
+    }
+    console.log(`[Server] received STORM ${storm} request`);
+    dashboardClients.forEach(client => {
+      if (client.ws.readyState === WebSocket.OPEN) {
+        client.ws.send(JSON.stringify({ storm }));
+      }
+    });
+    return {
+      message: storm
+        ? "Let it pour."
+        : "The dark clouds part.  A cool refreshing wind blows through."
+    };
+  }
+});
+
+server.route({
   method: "POST",
   path: "/images/all",
   config: {

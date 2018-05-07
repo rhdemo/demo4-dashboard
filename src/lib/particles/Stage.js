@@ -51,7 +51,10 @@ export default class Stage {
   }
   startDemoMode() {
     setInterval(() => this._pushImage(), 40);
-    setInterval(() => this._initMovingParticles(), 500);
+    setInterval(
+      () => this._initMovingParticles(Math.floor(8 * Math.random())),
+      500
+    );
   }
   pushLotsOfImages() {
     for (let i = 0; i < 200; ++i) setTimeout(() => this._pushImage(), 25);
@@ -85,7 +88,15 @@ export default class Stage {
     }
   }
   _initScoredImageSource() {
-    this.imageSource = new ScoredImageSource();
+    this.imageSource = new ScoredImageSource({
+      stormCallback: data => {
+        if (data.storm) {
+          this.startStorm();
+        } else {
+          this.stopStorm();
+        }
+      }
+    });
     this.imageSource.onImage((scoredImage, imgEl) => {
       this._pushImage(imgEl.src);
 

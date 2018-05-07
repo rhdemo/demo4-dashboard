@@ -52,3 +52,12 @@ img {
 }
 
 
+#storm {
+  background: black;
+  color: white;
+  font-size: 20px;
+}
+#storm-response {
+}
+
+.hidden { display: none; }

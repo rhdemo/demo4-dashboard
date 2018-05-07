@@ -20,6 +20,8 @@ For the demo2 dashboard (forked from this one), see [rhdemo/demo2-dashboard](htt
 
 After running npm start, open [localhost:3000/approve/](http://localhost:3000/approve/) (it may be running on another port).
 
+To enable the STORM button on the approve page, add `?controls` to the URL.  It should only be available to one user doing approvals.
+
 ### Using a fake Microservice B
 
 There's a fake microservice B bundled with demo4-dashboard.  To launch using it, prepend `NODE_ENV=test` to the `npm start` command like so:
