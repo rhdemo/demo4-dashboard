@@ -107,8 +107,8 @@ export default class Stage {
         "a horse": 2,
         "an apple": 3,
 
-        "a cell phone": 4,
-        "a laptop": 5,
+        "a laptop": 4, // this and the next one are swapped as a quick fix because I traced the paths in the wrong order
+        "a cell phone": 5, // this and the previous one are swapped as a quick fix because I traced the paths in the wrong order
         "a clock": 6,
         "a book": 7
       };
