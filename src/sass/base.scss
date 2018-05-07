@@ -169,8 +169,10 @@ body {
   justify-content: space-between;
   text-align: center;
   line-height: 1.2;
-  padding: 2rem 4rem;
+  padding: 0rem 4rem;
   z-index: 250;
+  // outline: 1px solid red;
+  margin-top: 6.5rem;
 
   li {
     font-size: 3.5rem;
