@@ -262,9 +262,9 @@ body {
     height: 300px;
     width: auto;
     animation-iteration-count: 1;
-    box-shadow: 0 0 10rem rgba(0, 0, 0, 0.3);
+    // box-shadow: 0 0 10rem rgba(0, 0, 0, 0.3);
     animation: secondary-image-one 1.5s ease-in-out forwards infinite;
-    filter: opacity(0);
+    opacity: 0;
   }
 
   .secondary-image-1 {
@@ -327,13 +327,13 @@ body {
 
   85% {
     transform: scale(0.25) translate3D(-60rem, -13rem, 0);
-    filter: opacity(1);
+    opacity: 1;
     animation-timing-function: ease-out;
   }
 
   100% {
     transform: scale(0.25) translate3D(5rem, -13rem, 0);
-    filter: opacity(0);
+    opacity: 0;
   }
 }
 
@@ -345,13 +345,13 @@ body {
 
   85% {
     transform: scale(0.25) translate3D(-60rem, -13rem, 0);
-    filter: opacity(1);
+    opacity: 1;
     animation-timing-function: ease-out;
   }
 
   100% {
     transform: scale(0.25) translate3D(5rem, -13rem, 0);
-    filter: opacity(0);
+    opacity: 0;
   }
 }
 
@@ -363,13 +363,13 @@ body {
 
   85% {
     transform: scale(0.25) translate3D(-60rem, -13rem, 0);
-    filter: opacity(1);
+    opacity: 1;
     animation-timing-function: ease-out;
   }
 
   100% {
     transform: scale(0.25) translate3D(5rem, -13rem, 0);
-    filter: opacity(0);
+    opacity: 0;
   }
 }
 
@@ -381,13 +381,13 @@ body {
 
   85% {
     transform: scale(0.25) translate3D(-60rem, -13rem, 0);
-    filter: opacity(1);
+    opacity: 1;
     animation-timing-function: ease-out;
   }
 
   100% {
     transform: scale(0.25) translate3D(5rem, -13rem, 0);
-    filter: opacity(0);
+    opacity: 0;
   }
 }
 
@@ -399,13 +399,13 @@ body {
 
   85% {
     transform: scale(0.25) translate3D(-60rem, -13rem, 0);
-    filter: opacity(1);
+    opacity: 1;
     animation-timing-function: ease-out;
   }
 
   100% {
     transform: scale(0.25) translate3D(5rem, -13rem, 0);
-    filter: opacity(0);
+    opacity: 0;
   }
 }
 
@@ -417,13 +417,13 @@ body {
 
   85% {
     transform: scale(0.25) translate3D(-60rem, -13rem, 0);
-    filter: opacity(1);
+    opacity: 1;
     animation-timing-function: ease-out;
   }
 
   100% {
     transform: scale(0.25) translate3D(5rem, -13rem, 0);
-    filter: opacity(0);
+    opacity: 0;
   }
 }
 
@@ -435,13 +435,13 @@ body {
 
   85% {
     transform: scale(0.25) translate3D(-60rem, -13rem, 0);
-    filter: opacity(1);
+    opacity: 1;
     animation-timing-function: ease-out;
   }
 
   100% {
     transform: scale(0.25) translate3D(5rem, -13rem, 0);
-    filter: opacity(0);
+    opacity: 0;
   }
 }
 
@@ -453,13 +453,13 @@ body {
 
   85% {
     transform: scale(0.25) translate3D(-60rem, -13rem, 0);
-    filter: opacity(1);
+    opacity: 1;
     animation-timing-function: ease-out;
   }
 
   100% {
     transform: scale(0.25) translate3D(5rem, -13rem, 0);
-    filter: opacity(0);
+    opacity: 0;
   }
 }
 
@@ -471,13 +471,13 @@ body {
 
   85% {
     transform: scale(0.25) translate3D(-60rem, -13rem, 0);
-    filter: opacity(1);
+    opacity: 1;
     animation-timing-function: ease-out;
   }
 
   100% {
     transform: scale(0.25) translate3D(5rem, -13rem, 0);
-    filter: opacity(0);
+    opacity: 0;
   }
 }
 
@@ -603,11 +603,11 @@ body {
 
 @keyframes flash {
   0% {
-    filter: opacity(1);
+    opacity: 1;
   }
 
   100% {
-    filter: opacity(0);
+    opacity: 0;
   }
 }
 
@@ -695,6 +695,7 @@ body.storm {
 
   .lightningbolt, .lightning {
     visibility: visible;
+    opacity: 1;
   }
   .header {
     animation: text 3s ease infinite;
@@ -712,6 +713,8 @@ body.storm {
 }
 
 .lightning {
+  opacity: 0;
+  display: none;
   visibility: hidden;
   position: absolute;
   top: 0;
@@ -868,7 +871,7 @@ body.storm {
   }
 
   2% {
-    filter: opacity(0);
+    opacity: 0;
   }
 
   4% {
@@ -876,7 +879,7 @@ body.storm {
   }
 
   6% {
-    filter: opacity(0);
+    opacity: 0;
   }
 
   8% {
@@ -884,7 +887,7 @@ body.storm {
   }
 
   10% {
-    filter: opacity(0);
+    opacity: 0;
   }
 
   12% {
@@ -892,7 +895,7 @@ body.storm {
   }
 
   14% {
-    filter: opacity(0);
+    opacity: 0;
   }
 
   16% {
@@ -900,22 +903,27 @@ body.storm {
   }
 
   18% {
-    filter: opacity(0);
+    opacity: 0;
   }
 
   20% {
-    filter: opacity(1);
+    opacity: 1;
   }
 
   // 22% {
-  //   filter: opacity(0);
+    opacity: 0;
   // }
 
   // 60% {
-  //   filter: opacity(0);
+    opacity: 0;
   // }
 
   100% {
-    filter: opacity(0);
+    opacity: 0;
   }
 }
+
+
+// body {
+//   background: red !important;
+// }

@@ -14,9 +14,9 @@ export default class MovingParticles extends Actor {
     probability = [],
     color,
     image,
-    speed = 0.007,
-    pointCount = 140,
-    pointSize = 8,
+    speed = 0.0035,
+    pointCount = 1000,
+    pointSize = 7,
     loopParticles = false
   } = {}) {
     super(stage);
@@ -134,7 +134,7 @@ export default class MovingParticles extends Actor {
       (v, i) => i % 2 === 0
     );
 
-    this.material.uniforms.xStart.value = -350; //min(xValues) + 3;
+    this.material.uniforms.xStart.value = min(xValues) + 3;
     this.material.uniforms.xEnd.value = max(xValues) - 16;
   }
 

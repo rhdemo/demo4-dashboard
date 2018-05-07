@@ -6,13 +6,10 @@
   "scripts": {
     "server": "nodemon src/lib/server/Server.js",
     "mock-msb": "nodemon src/lib/server/MockMSB.js",
-    "serve":
-      "./node_modules/.bin/browser-sync start --no-notify --server --serveStatic dist/ --files 'dist/**/*' --directory",
+    "serve": "./node_modules/.bin/browser-sync start --no-notify --server --serveStatic dist/ --files 'dist/**/*' --directory",
     "parcel": "./node_modules/.bin/parcel watch --no-hmr src/index.html",
-    "parcel-approve":
-      "./node_modules/.bin/parcel watch --no-hmr src/approve/index.html -d dist/approve/",
-    "start":
-      "NODE_ENV=test npm run mock-msb & npm run server & npm run parcel & npm run parcel-approve & npm run serve",
+    "parcel-approve": "./node_modules/.bin/parcel watch --no-hmr src/approve/index.html -d dist/approve/",
+    "start": "NODE_ENV=test npm run mock-msb & npm run server & npm run parcel & npm run parcel-approve & npm run serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
