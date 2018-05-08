@@ -33,7 +33,7 @@ export default class MovingParticles extends Actor {
     this.speed = speed;
     this.delaySpread = 1.0;
     this.size = pointSize;
-    this.spread = 2;
+    this.spread = 1.6;
     this.loopParticles = loopParticles;
     this.progress = 0;
 
