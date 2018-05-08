@@ -7,7 +7,7 @@
     "server": "nodemon src/lib/server/Server.js",
     "mock-msb": "nodemon src/lib/server/MockMSB.js",
     "serve":
-      "./node_modules/.bin/browser-sync start --port 3210 --no-notify --server --serveStatic dist/ --files 'dist/**/*' --directory --no-open",
+      "./node_modules/.bin/browser-sync start --port 3210 --no-notify --server --serveStatic dist/ --files 'dist/**/*' --directory --no-open --no-ghost-mode",
     "parcel": "./node_modules/.bin/parcel watch --no-hmr src/index.html",
     "parcel-approve":
       "./node_modules/.bin/parcel watch --no-hmr src/approve/index.html -d dist/approve/",
