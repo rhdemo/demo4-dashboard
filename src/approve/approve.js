@@ -9,7 +9,7 @@ const log = makeLogger("Approve");
 let serverHost;
 if (location.hostname.includes(".com")) {
   serverHost =
-    "demo4-dashboard-service-demo4-dashboard.apps.summit-aws.sysdeseng.com";
+    "demo4-dashboard-service-demo4-dashboard.apps.summit-gce.sysdeseng.com";
 } else if (location.hostname.includes("localhost")) {
   serverHost = "localhost:1234";
 } else {
