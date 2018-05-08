@@ -28,7 +28,7 @@ function update() {
   let serviceUrl;
   if (location.hostname.includes(".com")) {
     serviceUrl =
-      "http://demo4-dashboard-service-demo4-dashboard.apps.summit-aws.sysdeseng.com/leaders";
+      "http://demo4-dashboard-service-demo4-dashboard.apps.summit-gce.sysdeseng.com/leaders";
   } else if (location.hostname.includes("localhost")) {
     serviceUrl = "http://localhost:1234/leaders";
   } else {

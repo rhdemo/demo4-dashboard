@@ -18,7 +18,7 @@ const scores = new ScoreStream({
   url:
     process.env.NODE_ENV === "test"
       ? "ws://localhost:1235/dashboard"
-      : "ws://score-gateway-scavenger-hunt-microservice.apps.summit-aws.sysdeseng.com/dashboard",
+      : "ws://score-gateway-scavenger-hunt-microservice.apps.summit-gce.sysdeseng.com/dashboard",
   keepalive: true
 });
 

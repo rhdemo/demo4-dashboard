@@ -7,7 +7,7 @@ let leaders = [];
 function update() {
   http
     .get(
-      "http://score-gateway-scavenger-hunt-microservice.apps.summit-aws.sysdeseng.com/leaderboard",
+      "http://score-gateway-scavenger-hunt-microservice.apps.summit-gce.sysdeseng.com/leaderboard",
       res => {
         const { statusCode } = res;
         const contentType = res.headers["content-type"];
@@ -43,7 +43,7 @@ function update() {
     });
 
   // fetch(
-  //   "http://vertx-player-microservice-b.apps.summit-aws.sysdeseng.com/leaderboard"
+  //   "http://vertx-player-microservice-b.apps.summit-gce.sysdeseng.com/leaderboard"
   // )
   //   .then(rsp => rsp.json())
   //   .then(json => {
