@@ -40,11 +40,11 @@ function update() {
   fetch(serviceUrl)
     .then(rsp => rsp.json())
     .then(leaders => {
-      if (document.body.classList.contains('storm')) {
+      if (document.body.classList.contains("storm")) {
         isStorming = true;
       }
 
-      if (!document.body.classList.contains('storm') && isStorming) {
+      if (!document.body.classList.contains("storm") && isStorming) {
         hasStormed = true;
       }
 
@@ -52,7 +52,7 @@ function update() {
       app.totalPlayers = leaders.currentPlayers || 0;
       app.azurePlayers = leaders.Azure || 0;
       app.privatePlayers = leaders.Private || 0;
-      app.amazonPlayers = (!hasStormed) ? leaders.Amazon || 0 : 0;
+      app.amazonPlayers = !hasStormed ? leaders.Amazon || 0 : 0;
     })
     .catch(err => {});
 }
