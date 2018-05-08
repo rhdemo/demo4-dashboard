@@ -46,6 +46,7 @@ server.route({
 ////////////////////
 
 const approvalClients = [];
+let nextApprovalClient = 0;
 const dashboardClients = [];
 const queue = new PendingQueue();
 
@@ -125,6 +126,7 @@ server.route({
             `[Server] approval client disconnected.  all clients: `,
             _.map(approvalClients, "id")
           );
+          nextApprovalClient %= approvalClients.length;
         }
       }
     }
@@ -198,11 +200,16 @@ scores.addEventListener("message", msg => {
 
         queue.push(data);
 
-        approvalClients.forEach(client => {
-          if (client.ws.readyState === WebSocket.OPEN) {
-            client.ws.send(JSON.stringify(data));
-          }
-        });
+        // approvalClients.forEach(client => {
+        //   if (client.ws.readyState === WebSocket.OPEN) {
+        //     client.ws.send(JSON.stringify(data));
+        //   }
+        // });
+        const client = approvalClients[nextApprovalClient];
+        if (client.ws.readyState === WebSocket.OPEN) {
+          client.ws.send(JSON.stringify(data));
+        }
+        nextApprovalClient = (nextApprovalClient + 1) % approvalClients.length;
       })
       .catch(err => {
         queue.push(data);
