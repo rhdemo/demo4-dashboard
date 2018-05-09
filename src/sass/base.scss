@@ -245,16 +245,17 @@ body {
   .tags {
     position: absolute;
     right: -16rem;
-    top: 4.8rem;
+    top: 3.75rem;
     li {
       margin-bottom: 3.1rem;
       // background:rgba(0,0,0,.5);
       background-image: linear-gradient(to right, transparent, rgba(0,0,0,.5));
       height: 3.6rem;
       line-height: 3.6rem;
-      padding: 0 2rem 0 15rem;
+      padding: 0 1.5rem 0 15rem;
       font-size: 1.8rem;
       text-align: right;
+      color: rgba(255, 255, 255, 0.8);
     }
   }
 
