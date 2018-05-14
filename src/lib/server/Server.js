@@ -170,7 +170,7 @@ scores.addEventListener("message", msg => {
     try {
       data = JSON.parse(msg.data);
     } catch (e) {
-      console.error(`[Server] error occurred while JSON decoding: ${msg.data}`);
+      console.warn(`[Server] error occurred while JSON decoding: ${msg.data}`);
       return;
     }
     if (!data.imageURL) {
