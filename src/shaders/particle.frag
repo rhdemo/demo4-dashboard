@@ -1,11 +1,9 @@
 uniform sampler2D texture;
 uniform float opacity;
 
-varying vec3 vColor;
 varying float vDiscard;
 varying vec2 vPathPos;
 varying float vOpacity;
-varying float vVariation;
 
 void main() {
 

@@ -27,11 +27,9 @@ uniform float loopParticles;
 uniform float xStart;
 uniform float xEnd;
 
-varying vec3 vColor;
 varying float vDiscard;
 varying vec2 vPathPos;
 varying float vOpacity;
-varying float vVariation;
 
 // p = progress [0..1)
 // pn = path number, indicating whether this particle should use path 0, path 1, etc
@@ -69,8 +67,6 @@ vec2 pointOnPath(float p, int pn, bool hideStationary) {
 }
 
 void main() {
-    vColor = color;
-    vVariation = variation;
 
     // if loopParticles is enabled, then mod the progress, causing the
     // particles to restart their paths upon completion
